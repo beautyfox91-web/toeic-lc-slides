@@ -103,6 +103,12 @@ html, body { height:100%; overflow:hidden; }
 .options.revealed .opt.picked-wrong { background: color-mix(in srgb, var(--bad) 18%, var(--surface-2)); border-color:var(--bad); }
 .options.revealed .opt.picked-wrong .label { background:var(--bad); color:#fff; }
 .answer-line { margin-top:1em; min-height:1.4em; font-weight:800; letter-spacing:.03em; font-size:clamp(1rem,1.6vw,1.3rem); color:var(--good); }
+.mascot { position:absolute; z-index:3; pointer-events:none;
+  right:clamp(.8rem,2vw,2rem); bottom:clamp(.8rem,2vw,2rem);
+  height:clamp(64px,11vh,128px); width:clamp(64px,11vh,128px);
+  background-image:url("mascot.png"); background-size:contain; background-repeat:no-repeat; background-position:bottom right;
+  filter: drop-shadow(0 8px 16px rgba(22,32,74,.18)); }
+@media (max-height:480px), (max-width:640px) { .mascot { display:none; } }
 .controls { position:relative; z-index:2; display:flex; align-items:center; gap:.6rem; justify-content:center; padding:.8rem 1rem; flex-wrap:wrap; }
 .controls button, .controls select { font:inherit; font-size:.85rem; font-weight:700; color:var(--ink); background:var(--surface-2);
   border:2px solid var(--line); border-radius:999px; padding:.5em 1.1em; cursor:pointer; }
@@ -141,6 +147,7 @@ html, body { height:100%; overflow:hidden; }
       <div class="answer-line" aria-live="polite"></div>
     </div>
   </div>
+  <div class="mascot" aria-hidden="true"></div>
 </section>
 <section class="slide question-slide" data-tag="5차시 · 문항 2" data-answer="B">
   <div class="stage">
@@ -153,6 +160,7 @@ html, body { height:100%; overflow:hidden; }
       <div class="answer-line" aria-live="polite"></div>
     </div>
   </div>
+  <div class="mascot" aria-hidden="true"></div>
 </section>
 <section class="slide question-slide" data-tag="5차시 · 문항 3" data-answer="A">
   <div class="stage">
@@ -165,6 +173,7 @@ html, body { height:100%; overflow:hidden; }
       <div class="answer-line" aria-live="polite"></div>
     </div>
   </div>
+  <div class="mascot" aria-hidden="true"></div>
 </section>
 <section class="slide script-slide" data-tag="5차시 · Part 3 · 지문 2">
   <div class="stage">
@@ -184,6 +193,7 @@ html, body { height:100%; overflow:hidden; }
       <div class="answer-line" aria-live="polite"></div>
     </div>
   </div>
+  <div class="mascot" aria-hidden="true"></div>
 </section>
 <section class="slide question-slide" data-tag="5차시 · 문항 5" data-answer="B">
   <div class="stage">
@@ -196,6 +206,7 @@ html, body { height:100%; overflow:hidden; }
       <div class="answer-line" aria-live="polite"></div>
     </div>
   </div>
+  <div class="mascot" aria-hidden="true"></div>
 </section>
 <section class="slide question-slide" data-tag="5차시 · 문항 6" data-answer="B">
   <div class="stage">
@@ -208,6 +219,7 @@ html, body { height:100%; overflow:hidden; }
       <div class="answer-line" aria-live="polite"></div>
     </div>
   </div>
+  <div class="mascot" aria-hidden="true"></div>
 </section>
 <section class="slide script-slide" data-tag="5차시 · Part 4 · 지문 3">
   <div class="stage">
@@ -227,6 +239,7 @@ html, body { height:100%; overflow:hidden; }
       <div class="answer-line" aria-live="polite"></div>
     </div>
   </div>
+  <div class="mascot" aria-hidden="true"></div>
 </section>
 <section class="slide question-slide" data-tag="5차시 · 문항 8" data-answer="B">
   <div class="stage">
@@ -239,6 +252,7 @@ html, body { height:100%; overflow:hidden; }
       <div class="answer-line" aria-live="polite"></div>
     </div>
   </div>
+  <div class="mascot" aria-hidden="true"></div>
 </section>
 <section class="slide question-slide" data-tag="5차시 · 문항 9" data-answer="B">
   <div class="stage">
@@ -251,6 +265,7 @@ html, body { height:100%; overflow:hidden; }
       <div class="answer-line" aria-live="polite"></div>
     </div>
   </div>
+  <div class="mascot" aria-hidden="true"></div>
 </section>
 <section class="slide script-slide" data-tag="5차시 · Part 4 · 지문 4">
   <div class="stage">
@@ -270,6 +285,7 @@ html, body { height:100%; overflow:hidden; }
       <div class="answer-line" aria-live="polite"></div>
     </div>
   </div>
+  <div class="mascot" aria-hidden="true"></div>
 </section>
 <section class="slide question-slide" data-tag="5차시 · 문항 11" data-answer="B">
   <div class="stage">
@@ -282,6 +298,7 @@ html, body { height:100%; overflow:hidden; }
       <div class="answer-line" aria-live="polite"></div>
     </div>
   </div>
+  <div class="mascot" aria-hidden="true"></div>
 </section>
 <section class="slide question-slide" data-tag="5차시 · 문항 12" data-answer="B">
   <div class="stage">
@@ -294,6 +311,7 @@ html, body { height:100%; overflow:hidden; }
       <div class="answer-line" aria-live="polite"></div>
     </div>
   </div>
+  <div class="mascot" aria-hidden="true"></div>
 </section>
   </div>
   <div class="controls">
