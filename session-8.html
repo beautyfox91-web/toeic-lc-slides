@@ -73,9 +73,7 @@ html, body { height:100%; overflow:hidden; }
 .script .speaker { font-weight:900; margin-right:.32em; }
 .script .speaker.sp-a { color:var(--pink); }
 .script .speaker.sp-b { color:var(--blue); }
-.qrow { display:flex; align-items:center; justify-content:center;
-  gap:clamp(1.5rem,4vw,4.5rem); width:min(96vw,1900px); margin-inline:auto; }
-.question { width:auto; max-width:min(52vw,920px); flex:none; }
+.question { width:min(94vw,1700px); margin-inline:auto; }
 .qnum { display:inline-flex; align-items:center; justify-content:center;
   width:clamp(2.4rem,3.6vw,3.4rem); height:clamp(2.4rem,3.6vw,3.4rem);
   border-radius:999px; background:var(--blue); color:#fff;
@@ -106,14 +104,13 @@ html, body { height:100%; overflow:hidden; }
 .options.revealed .opt.picked-wrong { background: color-mix(in srgb, var(--bad) 18%, var(--surface-2)); border-color:var(--bad); }
 .options.revealed .opt.picked-wrong .label { background:var(--bad); color:#fff; }
 .answer-line { margin-top:1em; min-height:1.4em; font-weight:800; letter-spacing:.03em; font-size:clamp(1rem,1.6vw,1.3rem); color:var(--good); }
-.mascot { flex:1 1 auto; align-self:stretch; pointer-events:none;
-  min-width:160px; max-width:34vw; height:auto; max-height:62vh;
-  background-image:url("mascot.png"); background-size:contain; background-repeat:no-repeat; background-position:center;
+.mascot { position:absolute; z-index:3; pointer-events:none;
+  top:clamp(1rem,3vw,2.4rem); right:clamp(1rem,3vw,2.4rem);
+  height:clamp(260px,38vh,460px); width:clamp(260px,38vh,460px);
+  background-image:url("mascot.png"); background-size:contain; background-repeat:no-repeat; background-position:top right;
   filter: drop-shadow(0 10px 22px rgba(22,32,74,.2)); }
-@media (max-width:900px) {
-  .qrow { flex-direction:column-reverse; gap:1rem; }
-  .question { max-width:min(92vw,1100px); }
-  .mascot { max-width:100%; width:100%; min-width:0; height:clamp(110px,18vh,180px); max-height:none; }
+@media (max-width:700px) {
+  .mascot { height:clamp(120px,20vh,200px); width:clamp(120px,20vh,200px); top:.6rem; right:.6rem; }
 }
 @media (max-height:420px) { .mascot { display:none; } }
 .controls { position:relative; z-index:2; display:flex; align-items:center; gap:.6rem; justify-content:center; padding:.8rem 1rem; flex-wrap:wrap; }
@@ -145,48 +142,42 @@ html, body { height:100%; overflow:hidden; }
 </section>
 <section class="slide question-slide" data-tag="8차시 · 문항 1" data-answer="B">
   <div class="stage">
-    <div class="qrow">
-      <div class="question">
-        <div class="qnum">1</div>
-        <p class="qtext">What is the purpose of the woman&#x27;s visit with the man?</p>
-        <div class="options">
-          <button type="button" class="opt" data-correct="false"><span class="label">A</span><span class="text">To conduct a job interview</span></button><button type="button" class="opt" data-correct="true"><span class="label">B</span><span class="text">To give a tour before orientation</span></button><button type="button" class="opt" data-correct="false"><span class="label">C</span><span class="text">To review his resume</span></button><button type="button" class="opt" data-correct="false"><span class="label">D</span><span class="text">To assign his first project</span></button>
-        </div>
-        <div class="answer-line" aria-live="polite"></div>
+    <div class="question">
+      <div class="qnum">1</div>
+      <p class="qtext">What is the purpose of the woman&#x27;s visit with the man?</p>
+      <div class="options">
+        <button type="button" class="opt" data-correct="false"><span class="label">A</span><span class="text">To conduct a job interview</span></button><button type="button" class="opt" data-correct="true"><span class="label">B</span><span class="text">To give a tour before orientation</span></button><button type="button" class="opt" data-correct="false"><span class="label">C</span><span class="text">To review his resume</span></button><button type="button" class="opt" data-correct="false"><span class="label">D</span><span class="text">To assign his first project</span></button>
       </div>
-      <div class="mascot" aria-hidden="true"></div>
+      <div class="answer-line" aria-live="polite"></div>
     </div>
   </div>
+  <div class="mascot" aria-hidden="true"></div>
 </section>
 <section class="slide question-slide" data-tag="8차시 · 문항 2" data-answer="B">
   <div class="stage">
-    <div class="qrow">
-      <div class="question">
-        <div class="qnum">2</div>
-        <p class="qtext">What does the woman tell the man to bring?</p>
-        <div class="options">
-          <button type="button" class="opt" data-correct="false"><span class="label">A</span><span class="text">A laptop</span></button><button type="button" class="opt" data-correct="true"><span class="label">B</span><span class="text">A notebook and pen</span></button><button type="button" class="opt" data-correct="false"><span class="label">C</span><span class="text">His employee ID</span></button><button type="button" class="opt" data-correct="false"><span class="label">D</span><span class="text">A copy of his contract</span></button>
-        </div>
-        <div class="answer-line" aria-live="polite"></div>
+    <div class="question">
+      <div class="qnum">2</div>
+      <p class="qtext">What does the woman tell the man to bring?</p>
+      <div class="options">
+        <button type="button" class="opt" data-correct="false"><span class="label">A</span><span class="text">A laptop</span></button><button type="button" class="opt" data-correct="true"><span class="label">B</span><span class="text">A notebook and pen</span></button><button type="button" class="opt" data-correct="false"><span class="label">C</span><span class="text">His employee ID</span></button><button type="button" class="opt" data-correct="false"><span class="label">D</span><span class="text">A copy of his contract</span></button>
       </div>
-      <div class="mascot" aria-hidden="true"></div>
+      <div class="answer-line" aria-live="polite"></div>
     </div>
   </div>
+  <div class="mascot" aria-hidden="true"></div>
 </section>
 <section class="slide question-slide" data-tag="8차시 · 문항 3" data-answer="B">
   <div class="stage">
-    <div class="qrow">
-      <div class="question">
-        <div class="qnum">3</div>
-        <p class="qtext">Where will the orientation take place?</p>
-        <div class="options">
-          <button type="button" class="opt" data-correct="false"><span class="label">A</span><span class="text">The first floor</span></button><button type="button" class="opt" data-correct="true"><span class="label">B</span><span class="text">The second floor</span></button><button type="button" class="opt" data-correct="false"><span class="label">C</span><span class="text">The cafeteria</span></button><button type="button" class="opt" data-correct="false"><span class="label">D</span><span class="text">An off-site location</span></button>
-        </div>
-        <div class="answer-line" aria-live="polite"></div>
+    <div class="question">
+      <div class="qnum">3</div>
+      <p class="qtext">Where will the orientation take place?</p>
+      <div class="options">
+        <button type="button" class="opt" data-correct="false"><span class="label">A</span><span class="text">The first floor</span></button><button type="button" class="opt" data-correct="true"><span class="label">B</span><span class="text">The second floor</span></button><button type="button" class="opt" data-correct="false"><span class="label">C</span><span class="text">The cafeteria</span></button><button type="button" class="opt" data-correct="false"><span class="label">D</span><span class="text">An off-site location</span></button>
       </div>
-      <div class="mascot" aria-hidden="true"></div>
+      <div class="answer-line" aria-live="polite"></div>
     </div>
   </div>
+  <div class="mascot" aria-hidden="true"></div>
 </section>
 <section class="slide script-slide" data-tag="8차시 · Part 3 · 지문 2">
   <div class="stage">
@@ -197,48 +188,42 @@ html, body { height:100%; overflow:hidden; }
 </section>
 <section class="slide question-slide" data-tag="8차시 · 문항 4" data-answer="B">
   <div class="stage">
-    <div class="qrow">
-      <div class="question">
-        <div class="qnum">4</div>
-        <p class="qtext">What are the speakers discussing?</p>
-        <div class="options">
-          <button type="button" class="opt" data-correct="false"><span class="label">A</span><span class="text">A hiring plan</span></button><button type="button" class="opt" data-correct="true"><span class="label">B</span><span class="text">A marketing campaign budget</span></button><button type="button" class="opt" data-correct="false"><span class="label">C</span><span class="text">A new office location</span></button><button type="button" class="opt" data-correct="false"><span class="label">D</span><span class="text">A product recall</span></button>
-        </div>
-        <div class="answer-line" aria-live="polite"></div>
+    <div class="question">
+      <div class="qnum">4</div>
+      <p class="qtext">What are the speakers discussing?</p>
+      <div class="options">
+        <button type="button" class="opt" data-correct="false"><span class="label">A</span><span class="text">A hiring plan</span></button><button type="button" class="opt" data-correct="true"><span class="label">B</span><span class="text">A marketing campaign budget</span></button><button type="button" class="opt" data-correct="false"><span class="label">C</span><span class="text">A new office location</span></button><button type="button" class="opt" data-correct="false"><span class="label">D</span><span class="text">A product recall</span></button>
       </div>
-      <div class="mascot" aria-hidden="true"></div>
+      <div class="answer-line" aria-live="polite"></div>
     </div>
   </div>
+  <div class="mascot" aria-hidden="true"></div>
 </section>
 <section class="slide question-slide" data-tag="8차시 · 문항 5" data-answer="B">
   <div class="stage">
-    <div class="qrow">
-      <div class="question">
-        <div class="qnum">5</div>
-        <p class="qtext">What does the man suggest cutting back on?</p>
-        <div class="options">
-          <button type="button" class="opt" data-correct="false"><span class="label">A</span><span class="text">Online advertising</span></button><button type="button" class="opt" data-correct="true"><span class="label">B</span><span class="text">Print advertising</span></button><button type="button" class="opt" data-correct="false"><span class="label">C</span><span class="text">Staff salaries</span></button><button type="button" class="opt" data-correct="false"><span class="label">D</span><span class="text">Travel expenses</span></button>
-        </div>
-        <div class="answer-line" aria-live="polite"></div>
+    <div class="question">
+      <div class="qnum">5</div>
+      <p class="qtext">What does the man suggest cutting back on?</p>
+      <div class="options">
+        <button type="button" class="opt" data-correct="false"><span class="label">A</span><span class="text">Online advertising</span></button><button type="button" class="opt" data-correct="true"><span class="label">B</span><span class="text">Print advertising</span></button><button type="button" class="opt" data-correct="false"><span class="label">C</span><span class="text">Staff salaries</span></button><button type="button" class="opt" data-correct="false"><span class="label">D</span><span class="text">Travel expenses</span></button>
       </div>
-      <div class="mascot" aria-hidden="true"></div>
+      <div class="answer-line" aria-live="polite"></div>
     </div>
   </div>
+  <div class="mascot" aria-hidden="true"></div>
 </section>
 <section class="slide question-slide" data-tag="8차시 · 문항 6" data-answer="B">
   <div class="stage">
-    <div class="qrow">
-      <div class="question">
-        <div class="qnum">6</div>
-        <p class="qtext">What will the woman do next?</p>
-        <div class="options">
-          <button type="button" class="opt" data-correct="false"><span class="label">A</span><span class="text">Cancel the campaign</span></button><button type="button" class="opt" data-correct="true"><span class="label">B</span><span class="text">Revise the budget</span></button><button type="button" class="opt" data-correct="false"><span class="label">C</span><span class="text">Hire a new employee</span></button><button type="button" class="opt" data-correct="false"><span class="label">D</span><span class="text">Schedule a meeting with a client</span></button>
-        </div>
-        <div class="answer-line" aria-live="polite"></div>
+    <div class="question">
+      <div class="qnum">6</div>
+      <p class="qtext">What will the woman do next?</p>
+      <div class="options">
+        <button type="button" class="opt" data-correct="false"><span class="label">A</span><span class="text">Cancel the campaign</span></button><button type="button" class="opt" data-correct="true"><span class="label">B</span><span class="text">Revise the budget</span></button><button type="button" class="opt" data-correct="false"><span class="label">C</span><span class="text">Hire a new employee</span></button><button type="button" class="opt" data-correct="false"><span class="label">D</span><span class="text">Schedule a meeting with a client</span></button>
       </div>
-      <div class="mascot" aria-hidden="true"></div>
+      <div class="answer-line" aria-live="polite"></div>
     </div>
   </div>
+  <div class="mascot" aria-hidden="true"></div>
 </section>
 <section class="slide script-slide" data-tag="8차시 · Part 4 · 지문 3">
   <div class="stage">
@@ -249,48 +234,42 @@ html, body { height:100%; overflow:hidden; }
 </section>
 <section class="slide question-slide" data-tag="8차시 · 문항 7" data-answer="B">
   <div class="stage">
-    <div class="qrow">
-      <div class="question">
-        <div class="qnum">7</div>
-        <p class="qtext">Who is most likely speaking?</p>
-        <div class="options">
-          <button type="button" class="opt" data-correct="false"><span class="label">A</span><span class="text">A librarian</span></button><button type="button" class="opt" data-correct="true"><span class="label">B</span><span class="text">A professor</span></button><button type="button" class="opt" data-correct="false"><span class="label">C</span><span class="text">A student</span></button><button type="button" class="opt" data-correct="false"><span class="label">D</span><span class="text">An administrator</span></button>
-        </div>
-        <div class="answer-line" aria-live="polite"></div>
+    <div class="question">
+      <div class="qnum">7</div>
+      <p class="qtext">Who is most likely speaking?</p>
+      <div class="options">
+        <button type="button" class="opt" data-correct="false"><span class="label">A</span><span class="text">A librarian</span></button><button type="button" class="opt" data-correct="true"><span class="label">B</span><span class="text">A professor</span></button><button type="button" class="opt" data-correct="false"><span class="label">C</span><span class="text">A student</span></button><button type="button" class="opt" data-correct="false"><span class="label">D</span><span class="text">An administrator</span></button>
       </div>
-      <div class="mascot" aria-hidden="true"></div>
+      <div class="answer-line" aria-live="polite"></div>
     </div>
   </div>
+  <div class="mascot" aria-hidden="true"></div>
 </section>
 <section class="slide question-slide" data-tag="8차시 · 문항 8" data-answer="C">
   <div class="stage">
-    <div class="qrow">
-      <div class="question">
-        <div class="qnum">8</div>
-        <p class="qtext">When is the first assignment due?</p>
-        <div class="options">
-          <button type="button" class="opt" data-correct="false"><span class="label">A</span><span class="text">Today</span></button><button type="button" class="opt" data-correct="false"><span class="label">B</span><span class="text">Next Monday</span></button><button type="button" class="opt" data-correct="true"><span class="label">C</span><span class="text">Next Friday</span></button><button type="button" class="opt" data-correct="false"><span class="label">D</span><span class="text">In two weeks</span></button>
-        </div>
-        <div class="answer-line" aria-live="polite"></div>
+    <div class="question">
+      <div class="qnum">8</div>
+      <p class="qtext">When is the first assignment due?</p>
+      <div class="options">
+        <button type="button" class="opt" data-correct="false"><span class="label">A</span><span class="text">Today</span></button><button type="button" class="opt" data-correct="false"><span class="label">B</span><span class="text">Next Monday</span></button><button type="button" class="opt" data-correct="true"><span class="label">C</span><span class="text">Next Friday</span></button><button type="button" class="opt" data-correct="false"><span class="label">D</span><span class="text">In two weeks</span></button>
       </div>
-      <div class="mascot" aria-hidden="true"></div>
+      <div class="answer-line" aria-live="polite"></div>
     </div>
   </div>
+  <div class="mascot" aria-hidden="true"></div>
 </section>
 <section class="slide question-slide" data-tag="8차시 · 문항 9" data-answer="C">
   <div class="stage">
-    <div class="qrow">
-      <div class="question">
-        <div class="qnum">9</div>
-        <p class="qtext">How should the assignment be submitted?</p>
-        <div class="options">
-          <button type="button" class="opt" data-correct="false"><span class="label">A</span><span class="text">By email</span></button><button type="button" class="opt" data-correct="false"><span class="label">B</span><span class="text">In person</span></button><button type="button" class="opt" data-correct="true"><span class="label">C</span><span class="text">Through an online portal</span></button><button type="button" class="opt" data-correct="false"><span class="label">D</span><span class="text">By mail</span></button>
-        </div>
-        <div class="answer-line" aria-live="polite"></div>
+    <div class="question">
+      <div class="qnum">9</div>
+      <p class="qtext">How should the assignment be submitted?</p>
+      <div class="options">
+        <button type="button" class="opt" data-correct="false"><span class="label">A</span><span class="text">By email</span></button><button type="button" class="opt" data-correct="false"><span class="label">B</span><span class="text">In person</span></button><button type="button" class="opt" data-correct="true"><span class="label">C</span><span class="text">Through an online portal</span></button><button type="button" class="opt" data-correct="false"><span class="label">D</span><span class="text">By mail</span></button>
       </div>
-      <div class="mascot" aria-hidden="true"></div>
+      <div class="answer-line" aria-live="polite"></div>
     </div>
   </div>
+  <div class="mascot" aria-hidden="true"></div>
 </section>
 <section class="slide script-slide" data-tag="8차시 · Part 4 · 지문 4">
   <div class="stage">
@@ -301,48 +280,42 @@ html, body { height:100%; overflow:hidden; }
 </section>
 <section class="slide question-slide" data-tag="8차시 · 문항 10" data-answer="B">
   <div class="stage">
-    <div class="qrow">
-      <div class="question">
-        <div class="qnum">10</div>
-        <p class="qtext">What type of program is this?</p>
-        <div class="options">
-          <button type="button" class="opt" data-correct="false"><span class="label">A</span><span class="text">A news broadcast</span></button><button type="button" class="opt" data-correct="true"><span class="label">B</span><span class="text">A podcast</span></button><button type="button" class="opt" data-correct="false"><span class="label">C</span><span class="text">A television commercial</span></button><button type="button" class="opt" data-correct="false"><span class="label">D</span><span class="text">A radio drama</span></button>
-        </div>
-        <div class="answer-line" aria-live="polite"></div>
+    <div class="question">
+      <div class="qnum">10</div>
+      <p class="qtext">What type of program is this?</p>
+      <div class="options">
+        <button type="button" class="opt" data-correct="false"><span class="label">A</span><span class="text">A news broadcast</span></button><button type="button" class="opt" data-correct="true"><span class="label">B</span><span class="text">A podcast</span></button><button type="button" class="opt" data-correct="false"><span class="label">C</span><span class="text">A television commercial</span></button><button type="button" class="opt" data-correct="false"><span class="label">D</span><span class="text">A radio drama</span></button>
       </div>
-      <div class="mascot" aria-hidden="true"></div>
+      <div class="answer-line" aria-live="polite"></div>
     </div>
   </div>
+  <div class="mascot" aria-hidden="true"></div>
 </section>
 <section class="slide question-slide" data-tag="8차시 · 문항 11" data-answer="B">
   <div class="stage">
-    <div class="qrow">
-      <div class="question">
-        <div class="qnum">11</div>
-        <p class="qtext">What is today&#x27;s episode about?</p>
-        <div class="options">
-          <button type="button" class="opt" data-correct="false"><span class="label">A</span><span class="text">A recipe demonstration</span></button><button type="button" class="opt" data-correct="true"><span class="label">B</span><span class="text">A guest&#x27;s business success story</span></button><button type="button" class="opt" data-correct="false"><span class="label">C</span><span class="text">A product review</span></button><button type="button" class="opt" data-correct="false"><span class="label">D</span><span class="text">A weather update</span></button>
-        </div>
-        <div class="answer-line" aria-live="polite"></div>
+    <div class="question">
+      <div class="qnum">11</div>
+      <p class="qtext">What is today&#x27;s episode about?</p>
+      <div class="options">
+        <button type="button" class="opt" data-correct="false"><span class="label">A</span><span class="text">A recipe demonstration</span></button><button type="button" class="opt" data-correct="true"><span class="label">B</span><span class="text">A guest&#x27;s business success story</span></button><button type="button" class="opt" data-correct="false"><span class="label">C</span><span class="text">A product review</span></button><button type="button" class="opt" data-correct="false"><span class="label">D</span><span class="text">A weather update</span></button>
       </div>
-      <div class="mascot" aria-hidden="true"></div>
+      <div class="answer-line" aria-live="polite"></div>
     </div>
   </div>
+  <div class="mascot" aria-hidden="true"></div>
 </section>
 <section class="slide question-slide" data-tag="8차시 · 문항 12" data-answer="B">
   <div class="stage">
-    <div class="qrow">
-      <div class="question">
-        <div class="qnum">12</div>
-        <p class="qtext">What will happen after the break?</p>
-        <div class="options">
-          <button type="button" class="opt" data-correct="false"><span class="label">A</span><span class="text">A commercial will play</span></button><button type="button" class="opt" data-correct="true"><span class="label">B</span><span class="text">The guest interview will continue</span></button><button type="button" class="opt" data-correct="false"><span class="label">C</span><span class="text">The show will end</span></button><button type="button" class="opt" data-correct="false"><span class="label">D</span><span class="text">Listeners can call in</span></button>
-        </div>
-        <div class="answer-line" aria-live="polite"></div>
+    <div class="question">
+      <div class="qnum">12</div>
+      <p class="qtext">What will happen after the break?</p>
+      <div class="options">
+        <button type="button" class="opt" data-correct="false"><span class="label">A</span><span class="text">A commercial will play</span></button><button type="button" class="opt" data-correct="true"><span class="label">B</span><span class="text">The guest interview will continue</span></button><button type="button" class="opt" data-correct="false"><span class="label">C</span><span class="text">The show will end</span></button><button type="button" class="opt" data-correct="false"><span class="label">D</span><span class="text">Listeners can call in</span></button>
       </div>
-      <div class="mascot" aria-hidden="true"></div>
+      <div class="answer-line" aria-live="polite"></div>
     </div>
   </div>
+  <div class="mascot" aria-hidden="true"></div>
 </section>
   </div>
   <div class="controls">
