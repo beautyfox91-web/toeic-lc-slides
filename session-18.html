@@ -1,0 +1,358 @@
+<!doctype html>
+<title>18차시 · TOEIC LC 슬라이드</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<style>
+@font-face { font-family: "Fraunces Var"; src: local("Fraunces"); }
+:root {
+  --ink: #16202E; --paper: #EEF1F4; --paper-2: #E1E6EA;
+  --accent: #B8863A; --accent-2: #8A6526; --muted: #5B6572; --line: #CCD3D9;
+  --good: #2F7A4F; --bad: #B23A3A; --shadow: 0 10px 30px rgba(22,32,46,0.08);
+}
+@media (prefers-color-scheme: dark) {
+  :root { --ink:#ECEFF2; --paper:#12181F; --paper-2:#1B232C; --accent:#E0AA55; --accent-2:#F0C077; --muted:#97A3AF; --line:#2B333D; --good:#4FAE73; --bad:#E06666; --shadow:0 10px 30px rgba(0,0,0,0.4); }
+}
+:root[data-theme="dark"] { --ink:#ECEFF2; --paper:#12181F; --paper-2:#1B232C; --accent:#E0AA55; --accent-2:#F0C077; --muted:#97A3AF; --line:#2B333D; --good:#4FAE73; --bad:#E06666; --shadow:0 10px 30px rgba(0,0,0,0.4); }
+:root[data-theme="light"] { --ink:#16202E; --paper:#EEF1F4; --paper-2:#E1E6EA; --accent:#B8863A; --accent-2:#8A6526; --muted:#5B6572; --line:#CCD3D9; --good:#2F7A4F; --bad:#B23A3A; --shadow:0 10px 30px rgba(22,32,46,0.08); }
+* { box-sizing: border-box; }
+html, body { margin:0; padding:0; background:var(--paper); color:var(--ink);
+  font-family:"Pretendard Variable","Apple SD Gothic Neo","Malgun Gothic",-apple-system,"Segoe UI",sans-serif; }
+a { color: inherit; }
+
+html, body { height:100%; overflow:hidden; }
+.deck { position:relative; height:100vh; height:100dvh; display:flex; flex-direction:column; }
+.progress { height:3px; background:var(--paper-2); }
+.progress > div { height:100%; background:var(--accent); width:0%; transition:width .25s ease; }
+.topbar { display:flex; align-items:center; justify-content:space-between; padding:.9rem 1.6rem;
+  border-bottom:1px solid var(--line); font-size:.8rem; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); }
+.topbar .left { display:flex; align-items:center; gap:1rem; }
+.topbar a.home { color:var(--accent-2); font-weight:700; text-decoration:none; }
+.topbar a.home:hover { text-decoration:underline; }
+.topbar .tag { font-weight:600; color:var(--accent-2); }
+.topbar .counter { font-variant-numeric: tabular-nums; }
+.slides { position:relative; flex:1; min-height:0; }
+.slide { position:absolute; inset:0; display:none; align-items:stretch; justify-content:stretch; }
+.slide.active { display:flex; }
+.slide.entering { animation: fade .28s ease; }
+@media (prefers-reduced-motion: reduce) { .slide.entering { animation:none; } }
+@keyframes fade { from{opacity:0; transform:translateY(6px);} to{opacity:1; transform:translateY(0);} }
+.stage { flex:1; display:flex; align-items:center; justify-content:center; padding:clamp(1.5rem,5vw,5rem); text-align:center; }
+.script { width:min(94vw,1900px); margin-inline:auto; text-align:left; }
+.script .line { font-family:Georgia,"Iowan Old Style","Palatino Linotype","Noto Serif",serif; line-height:1.5; margin:0 0 .7em 0; }
+.script.len-1 .line { font-size:clamp(2.4rem,6vw,5.2rem); }
+.script.len-2 .line { font-size:clamp(2.1rem,5vw,4.3rem); }
+.script.len-3 .line { font-size:clamp(1.8rem,4vw,3.6rem); }
+.script.len-4 .line { font-size:clamp(1.55rem,3.3vw,2.9rem); }
+.script.len-5 .line { font-size:clamp(1.3rem,2.7vw,2.4rem); }
+.script .line.solo { margin:0; }
+.script.monologue .line { line-height:2; }
+.script .speaker { display:inline-flex; align-items:center; justify-content:center; min-width:1.5em; height:1.5em; padding:0 .15em;
+  margin-right:.35em; border-radius:999px; background:var(--accent); color:var(--paper);
+  font-family:"Pretendard Variable","Apple SD Gothic Neo",sans-serif; font-weight:700; font-size:.42em; vertical-align:.12em; }
+.question { width:min(94vw,1700px); margin-inline:auto; }
+.qnum { font-family:"Pretendard Variable","Apple SD Gothic Neo",sans-serif; font-weight:800; letter-spacing:.04em;
+  color:var(--accent-2); font-size:clamp(1rem,1.6vw,1.4rem); margin-bottom:.6em; }
+.qtext { font-family:Georgia,"Iowan Old Style","Palatino Linotype","Noto Serif",serif; font-weight:700; line-height:1.4;
+  margin:0 0 1em 0; font-size:clamp(1.7rem,3.4vw,3.1rem); text-wrap:balance; }
+.options { display:flex; flex-direction:column; gap:.6em; }
+.opt { display:flex; align-items:center; gap:.7em; text-align:left; background:var(--paper-2); border:1px solid var(--line);
+  border-radius:.6em; padding:.7em 1em; cursor:pointer; font:inherit; color:inherit;
+  transition:background .15s ease, border-color .15s ease, transform .1s ease; }
+.opt:hover { border-color:var(--accent); }
+.opt:active { transform:scale(.99); }
+.opt .label { display:inline-flex; align-items:center; justify-content:center; width:1.7em; height:1.7em; flex:none;
+  border-radius:999px; background:var(--paper); border:1px solid var(--line);
+  font-family:"Pretendard Variable","Apple SD Gothic Neo",sans-serif; font-weight:800; font-size:clamp(.9rem,1.3vw,1.15rem); }
+.opt .text { font-family:Georgia,"Iowan Old Style","Palatino Linotype","Noto Serif",serif; font-size:clamp(1.15rem,2vw,1.7rem); line-height:1.35; }
+.options.revealed .opt { cursor:default; }
+.options.revealed .opt[data-correct="true"] { background: color-mix(in srgb, var(--good) 18%, var(--paper-2)); border-color:var(--good); }
+.options.revealed .opt[data-correct="true"] .label { background:var(--good); color:#fff; border-color:var(--good); }
+.options.revealed .opt.picked-wrong { background: color-mix(in srgb, var(--bad) 16%, var(--paper-2)); border-color:var(--bad); }
+.options.revealed .opt.picked-wrong .label { background:var(--bad); color:#fff; border-color:var(--bad); }
+.answer-line { margin-top:1em; min-height:1.4em; font-weight:700; letter-spacing:.03em; font-size:clamp(1rem,1.6vw,1.3rem); color:var(--good); }
+.controls { display:flex; align-items:center; gap:.6rem; justify-content:center; padding:.8rem 1rem; border-top:1px solid var(--line); flex-wrap:wrap; }
+.controls button, .controls select { font:inherit; font-size:.85rem; color:var(--ink); background:var(--paper-2);
+  border:1px solid var(--line); border-radius:.5em; padding:.5em .9em; cursor:pointer; }
+.controls button:hover, .controls select:hover { border-color:var(--accent); }
+.controls button:focus-visible, .controls select:focus-visible, .opt:focus-visible { outline:2px solid var(--accent); outline-offset:2px; }
+.controls .spacer { width:.4rem; }
+.controls .hint { color:var(--muted); font-size:.78rem; }
+</style>
+
+<div class="deck" id="deck">
+  <div class="progress"><div id="progressBar"></div></div>
+  <div class="topbar">
+    <div class="left">
+      <a class="home" href="index.html">← 차시 목록</a>
+      <span class="tag" id="tag"></span>
+    </div>
+    <span class="counter" id="counter"></span>
+  </div>
+  <div class="slides" id="slides">
+    
+<section class="slide script-slide" data-tag="18차시 · Part 3 · 지문 1">
+  <div class="stage">
+    <div class="script len-4 dialogue">
+      <p class="line"><span class="speaker">W</span>I heard we&#x27;re moving to a new office building next quarter. Do you know any details yet?</p><p class="line"><span class="speaker">M</span>Just that it&#x27;ll be downtown, closer to the train station. Facilities is supposed to send a full moving schedule soon.</p><p class="line"><span class="speaker">W</span>That&#x27;s convenient for my commute. I hope they give us enough notice to pack.</p><p class="line"><span class="speaker">M</span>I&#x27;m sure they will, it&#x27;s a big move.</p>
+    </div>
+  </div>
+</section>
+<section class="slide question-slide" data-tag="18차시 · 문항 1" data-answer="B">
+  <div class="stage">
+    <div class="question">
+      <div class="qnum">Q1</div>
+      <p class="qtext">What are the speakers discussing?</p>
+      <div class="options">
+        <button type="button" class="opt" data-correct="false"><span class="label">A</span><span class="text">A company merger</span></button><button type="button" class="opt" data-correct="true"><span class="label">B</span><span class="text">An office relocation</span></button><button type="button" class="opt" data-correct="false"><span class="label">C</span><span class="text">A renovation project</span></button><button type="button" class="opt" data-correct="false"><span class="label">D</span><span class="text">A change in work hours</span></button>
+      </div>
+      <div class="answer-line" aria-live="polite"></div>
+    </div>
+  </div>
+</section>
+<section class="slide question-slide" data-tag="18차시 · 문항 2" data-answer="B">
+  <div class="stage">
+    <div class="question">
+      <div class="qnum">Q2</div>
+      <p class="qtext">Where will the new office be located?</p>
+      <div class="options">
+        <button type="button" class="opt" data-correct="false"><span class="label">A</span><span class="text">In the suburbs</span></button><button type="button" class="opt" data-correct="true"><span class="label">B</span><span class="text">Downtown, near the train station</span></button><button type="button" class="opt" data-correct="false"><span class="label">C</span><span class="text">In another city</span></button><button type="button" class="opt" data-correct="false"><span class="label">D</span><span class="text">At the current location</span></button>
+      </div>
+      <div class="answer-line" aria-live="polite"></div>
+    </div>
+  </div>
+</section>
+<section class="slide question-slide" data-tag="18차시 · 문항 3" data-answer="B">
+  <div class="stage">
+    <div class="question">
+      <div class="qnum">Q3</div>
+      <p class="qtext">What is the woman hoping for?</p>
+      <div class="options">
+        <button type="button" class="opt" data-correct="false"><span class="label">A</span><span class="text">A pay raise</span></button><button type="button" class="opt" data-correct="true"><span class="label">B</span><span class="text">Enough notice to pack</span></button><button type="button" class="opt" data-correct="false"><span class="label">C</span><span class="text">A larger office</span></button><button type="button" class="opt" data-correct="false"><span class="label">D</span><span class="text">Remote work options</span></button>
+      </div>
+      <div class="answer-line" aria-live="polite"></div>
+    </div>
+  </div>
+</section>
+<section class="slide script-slide" data-tag="18차시 · Part 3 · 지문 2">
+  <div class="stage">
+    <div class="script len-3 dialogue">
+      <p class="line"><span class="speaker">M</span>Our contract with Sunrise Media is up for renewal next month. Should we reach out to them?</p><p class="line"><span class="speaker">W</span>Yes, let&#x27;s schedule a call to discuss the terms. I&#x27;d like to propose a longer contract this time.</p><p class="line"><span class="speaker">M</span>I&#x27;ll reach out today and see if they&#x27;re available this week.</p><p class="line"><span class="speaker">W</span>Great, let me know what they say.</p>
+    </div>
+  </div>
+</section>
+<section class="slide question-slide" data-tag="18차시 · 문항 4" data-answer="B">
+  <div class="stage">
+    <div class="question">
+      <div class="qnum">Q4</div>
+      <p class="qtext">What are the speakers discussing?</p>
+      <div class="options">
+        <button type="button" class="opt" data-correct="false"><span class="label">A</span><span class="text">A new client proposal</span></button><button type="button" class="opt" data-correct="true"><span class="label">B</span><span class="text">A contract renewal</span></button><button type="button" class="opt" data-correct="false"><span class="label">C</span><span class="text">A budget review</span></button><button type="button" class="opt" data-correct="false"><span class="label">D</span><span class="text">A product complaint</span></button>
+      </div>
+      <div class="answer-line" aria-live="polite"></div>
+    </div>
+  </div>
+</section>
+<section class="slide question-slide" data-tag="18차시 · 문항 5" data-answer="B">
+  <div class="stage">
+    <div class="question">
+      <div class="qnum">Q5</div>
+      <p class="qtext">What does the woman want to propose?</p>
+      <div class="options">
+        <button type="button" class="opt" data-correct="false"><span class="label">A</span><span class="text">A lower price</span></button><button type="button" class="opt" data-correct="true"><span class="label">B</span><span class="text">A longer contract</span></button><button type="button" class="opt" data-correct="false"><span class="label">C</span><span class="text">A shorter contract</span></button><button type="button" class="opt" data-correct="false"><span class="label">D</span><span class="text">A different vendor</span></button>
+      </div>
+      <div class="answer-line" aria-live="polite"></div>
+    </div>
+  </div>
+</section>
+<section class="slide question-slide" data-tag="18차시 · 문항 6" data-answer="B">
+  <div class="stage">
+    <div class="question">
+      <div class="qnum">Q6</div>
+      <p class="qtext">What will the man do today?</p>
+      <div class="options">
+        <button type="button" class="opt" data-correct="false"><span class="label">A</span><span class="text">Sign the contract</span></button><button type="button" class="opt" data-correct="true"><span class="label">B</span><span class="text">Reach out to schedule a call</span></button><button type="button" class="opt" data-correct="false"><span class="label">C</span><span class="text">Cancel the contract</span></button><button type="button" class="opt" data-correct="false"><span class="label">D</span><span class="text">Send an invoice</span></button>
+      </div>
+      <div class="answer-line" aria-live="polite"></div>
+    </div>
+  </div>
+</section>
+<section class="slide script-slide" data-tag="18차시 · Part 4 · 지문 3">
+  <div class="stage">
+    <div class="script len-3 monologue">
+      <p class="line solo">This is a reminder that open enrollment for employee benefits ends this Friday. If you&#x27;d like to make changes to your health insurance, retirement plan, or other benefits, please complete the enrollment forms on the HR portal before the deadline. No changes can be made after Friday.</p>
+    </div>
+  </div>
+</section>
+<section class="slide question-slide" data-tag="18차시 · 문항 7" data-answer="B">
+  <div class="stage">
+    <div class="question">
+      <div class="qnum">Q7</div>
+      <p class="qtext">What is this announcement about?</p>
+      <div class="options">
+        <button type="button" class="opt" data-correct="false"><span class="label">A</span><span class="text">A new hiring policy</span></button><button type="button" class="opt" data-correct="true"><span class="label">B</span><span class="text">Benefits open enrollment</span></button><button type="button" class="opt" data-correct="false"><span class="label">C</span><span class="text">A salary review</span></button><button type="button" class="opt" data-correct="false"><span class="label">D</span><span class="text">An office closure</span></button>
+      </div>
+      <div class="answer-line" aria-live="polite"></div>
+    </div>
+  </div>
+</section>
+<section class="slide question-slide" data-tag="18차시 · 문항 8" data-answer="C">
+  <div class="stage">
+    <div class="question">
+      <div class="qnum">Q8</div>
+      <p class="qtext">When does open enrollment end?</p>
+      <div class="options">
+        <button type="button" class="opt" data-correct="false"><span class="label">A</span><span class="text">Monday</span></button><button type="button" class="opt" data-correct="false"><span class="label">B</span><span class="text">Wednesday</span></button><button type="button" class="opt" data-correct="true"><span class="label">C</span><span class="text">Friday</span></button><button type="button" class="opt" data-correct="false"><span class="label">D</span><span class="text">Sunday</span></button>
+      </div>
+      <div class="answer-line" aria-live="polite"></div>
+    </div>
+  </div>
+</section>
+<section class="slide question-slide" data-tag="18차시 · 문항 9" data-answer="B">
+  <div class="stage">
+    <div class="question">
+      <div class="qnum">Q9</div>
+      <p class="qtext">Where should employees complete their forms?</p>
+      <div class="options">
+        <button type="button" class="opt" data-correct="false"><span class="label">A</span><span class="text">By mailing HR</span></button><button type="button" class="opt" data-correct="true"><span class="label">B</span><span class="text">On the HR portal</span></button><button type="button" class="opt" data-correct="false"><span class="label">C</span><span class="text">In person at the HR office</span></button><button type="button" class="opt" data-correct="false"><span class="label">D</span><span class="text">By calling HR</span></button>
+      </div>
+      <div class="answer-line" aria-live="polite"></div>
+    </div>
+  </div>
+</section>
+<section class="slide script-slide" data-tag="18차시 · Part 4 · 지문 4">
+  <div class="stage">
+    <div class="script len-3 monologue">
+      <p class="line solo">Please be advised that the water supply in the building will be shut off tomorrow from 9 A.M. to 12 P.M. for scheduled maintenance. We recommend storing water in advance if needed. We apologize for any inconvenience and appreciate your understanding.</p>
+    </div>
+  </div>
+</section>
+<section class="slide question-slide" data-tag="18차시 · 문항 10" data-answer="B">
+  <div class="stage">
+    <div class="question">
+      <div class="qnum">Q10</div>
+      <p class="qtext">What is being announced?</p>
+      <div class="options">
+        <button type="button" class="opt" data-correct="false"><span class="label">A</span><span class="text">A power outage</span></button><button type="button" class="opt" data-correct="true"><span class="label">B</span><span class="text">A water shutoff for maintenance</span></button><button type="button" class="opt" data-correct="false"><span class="label">C</span><span class="text">An elevator repair</span></button><button type="button" class="opt" data-correct="false"><span class="label">D</span><span class="text">A fire alarm test</span></button>
+      </div>
+      <div class="answer-line" aria-live="polite"></div>
+    </div>
+  </div>
+</section>
+<section class="slide question-slide" data-tag="18차시 · 문항 11" data-answer="C">
+  <div class="stage">
+    <div class="question">
+      <div class="qnum">Q11</div>
+      <p class="qtext">How long will the water be shut off?</p>
+      <div class="options">
+        <button type="button" class="opt" data-correct="false"><span class="label">A</span><span class="text">One hour</span></button><button type="button" class="opt" data-correct="false"><span class="label">B</span><span class="text">Two hours</span></button><button type="button" class="opt" data-correct="true"><span class="label">C</span><span class="text">Three hours</span></button><button type="button" class="opt" data-correct="false"><span class="label">D</span><span class="text">All day</span></button>
+      </div>
+      <div class="answer-line" aria-live="polite"></div>
+    </div>
+  </div>
+</section>
+<section class="slide question-slide" data-tag="18차시 · 문항 12" data-answer="B">
+  <div class="stage">
+    <div class="question">
+      <div class="qnum">Q12</div>
+      <p class="qtext">What do they recommend residents do?</p>
+      <div class="options">
+        <button type="button" class="opt" data-correct="false"><span class="label">A</span><span class="text">Leave the building</span></button><button type="button" class="opt" data-correct="true"><span class="label">B</span><span class="text">Store water in advance</span></button><button type="button" class="opt" data-correct="false"><span class="label">C</span><span class="text">Use bottled water only</span></button><button type="button" class="opt" data-correct="false"><span class="label">D</span><span class="text">Contact the front desk</span></button>
+      </div>
+      <div class="answer-line" aria-live="polite"></div>
+    </div>
+  </div>
+</section>
+  </div>
+  <div class="controls">
+    <button id="prevBtn" title="이전 (←)">← 이전</button>
+    <button id="nextBtn" title="다음 (→)">다음 →</button>
+    <span class="spacer"></span>
+    <select id="sessionNav"><option value="session-1.html" >1차시</option>
+<option value="session-2.html" >2차시</option>
+<option value="session-3.html" >3차시</option>
+<option value="session-4.html" >4차시</option>
+<option value="session-5.html" >5차시</option>
+<option value="session-6.html" >6차시</option>
+<option value="session-7.html" >7차시</option>
+<option value="session-8.html" >8차시</option>
+<option value="session-9.html" >9차시</option>
+<option value="session-10.html" >10차시</option>
+<option value="session-11.html" >11차시</option>
+<option value="session-12.html" >12차시</option>
+<option value="session-13.html" >13차시</option>
+<option value="session-14.html" >14차시</option>
+<option value="session-15.html" >15차시</option>
+<option value="session-16.html" >16차시</option>
+<option value="session-17.html" >17차시</option>
+<option value="session-18.html" selected>18차시</option>
+<option value="session-19.html" >19차시</option>
+<option value="session-20.html" >20차시</option></select>
+    <span class="spacer"></span>
+    <button id="fsBtn">전체화면</button>
+    <span class="hint">스페이스/방향키로 이동 · 보기를 클릭하면 정답 확인</span>
+  </div>
+</div>
+
+<script>
+(function() {
+  var slides = Array.prototype.slice.call(document.querySelectorAll('.slide'));
+  var total = slides.length;
+  var idx = 0;
+  var tagEl = document.getElementById('tag');
+  var counterEl = document.getElementById('counter');
+  var progressBar = document.getElementById('progressBar');
+
+  function render() {
+    slides.forEach(function(s, i) {
+      if (i === idx) {
+        s.classList.add('active'); s.classList.add('entering');
+        setTimeout(function() { s.classList.remove('entering'); }, 300);
+      } else { s.classList.remove('active'); }
+    });
+    var cur = slides[idx];
+    tagEl.textContent = cur.getAttribute('data-tag') || '';
+    counterEl.textContent = (idx + 1) + ' / ' + total;
+    progressBar.style.width = (((idx + 1) / total) * 100) + '%';
+  }
+
+  function go(n) {
+    if (n < 0) { window.location.href='session-17.html'; return; }
+    if (n >= total) { window.location.href='session-19.html'; return; }
+    idx = n; render();
+  }
+
+  document.getElementById('prevBtn').addEventListener('click', function() { go(idx - 1); });
+  document.getElementById('nextBtn').addEventListener('click', function() { go(idx + 1); });
+  document.getElementById('sessionNav').addEventListener('change', function(e) { window.location.href = e.target.value; });
+  document.getElementById('fsBtn').addEventListener('click', function() {
+    var el = document.getElementById('deck');
+    if (document.fullscreenElement) { document.exitFullscreen(); }
+    else if (el.requestFullscreen) { el.requestFullscreen(); }
+  });
+
+  document.addEventListener('keydown', function(e) {
+    if (e.target.tagName === 'SELECT') return;
+    if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') { e.preventDefault(); go(idx + 1); }
+    else if (e.key === 'ArrowLeft' || e.key === 'PageUp') { e.preventDefault(); go(idx - 1); }
+    else if (e.key === 'Home') { e.preventDefault(); idx = 0; render(); }
+    else if (e.key === 'End') { e.preventDefault(); idx = total - 1; render(); }
+  });
+
+  slides.forEach(function(slide) {
+    var opts = slide.querySelectorAll('.opt');
+    if (!opts.length) return;
+    var group = slide.querySelector('.options');
+    var answerLine = slide.querySelector('.answer-line');
+    var answer = slide.getAttribute('data-answer');
+    opts.forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        if (group.classList.contains('revealed')) return;
+        group.classList.add('revealed');
+        if (btn.getAttribute('data-correct') !== 'true') { btn.classList.add('picked-wrong'); }
+        answerLine.textContent = '정답: ' + answer;
+      });
+    });
+  });
+
+  render();
+})();
+</script>
