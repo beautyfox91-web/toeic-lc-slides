@@ -4,43 +4,67 @@
 <meta name="description" content="TOEIC LC Part 3·4 20차시 학습 슬라이드. 차시를 선택해 스크립트와 문제를 학습하세요." />
 <style>
 
-@font-face { font-family: "Fraunces Var"; src: local("Fraunces"); }
 :root {
-  --ink: #16202E; --paper: #EEF1F4; --paper-2: #E1E6EA;
-  --accent: #B8863A; --accent-2: #8A6526; --muted: #5B6572; --line: #CCD3D9;
-  --good: #2F7A4F; --bad: #B23A3A; --shadow: 0 10px 30px rgba(22,32,46,0.08);
+  --bg: #F2F5FF; --surface-2: #FFFFFF; --pill: #EAEFFF;
+  --ink: #16204A; --muted: #5B628C; --line: #DBE1FA;
+  --blue: #2F6FED; --green: #16A34A; --yellow: #F0A400; --pink: #EE3D8B;
+  --good: #16A34A; --bad: #E23B5A; --shadow: 0 16px 36px rgba(24,32,80,.14);
 }
 @media (prefers-color-scheme: dark) {
-  :root { --ink:#ECEFF2; --paper:#12181F; --paper-2:#1B232C; --accent:#E0AA55; --accent-2:#F0C077; --muted:#97A3AF; --line:#2B333D; --good:#4FAE73; --bad:#E06666; --shadow:0 10px 30px rgba(0,0,0,0.4); }
+  :root {
+    --bg: #121632; --surface-2: #1D2350; --pill: #262C5C;
+    --ink: #EEF1FF; --muted: #A6ADDA; --line: #333B72;
+    --blue: #82A6FF; --green: #4ADE94; --yellow: #FFC94D; --pink: #FF74B8;
+    --good: #4ADE94; --bad: #FF6E86; --shadow: 0 16px 36px rgba(0,0,0,.55);
+  }
 }
-:root[data-theme="dark"] { --ink:#ECEFF2; --paper:#12181F; --paper-2:#1B232C; --accent:#E0AA55; --accent-2:#F0C077; --muted:#97A3AF; --line:#2B333D; --good:#4FAE73; --bad:#E06666; --shadow:0 10px 30px rgba(0,0,0,0.4); }
-:root[data-theme="light"] { --ink:#16202E; --paper:#EEF1F4; --paper-2:#E1E6EA; --accent:#B8863A; --accent-2:#8A6526; --muted:#5B6572; --line:#CCD3D9; --good:#2F7A4F; --bad:#B23A3A; --shadow:0 10px 30px rgba(22,32,46,0.08); }
+:root[data-theme="dark"] {
+  --bg: #121632; --surface-2: #1D2350; --pill: #262C5C;
+  --ink: #EEF1FF; --muted: #A6ADDA; --line: #333B72;
+  --blue: #82A6FF; --green: #4ADE94; --yellow: #FFC94D; --pink: #FF74B8;
+  --good: #4ADE94; --bad: #FF6E86; --shadow: 0 16px 36px rgba(0,0,0,.55);
+}
+:root[data-theme="light"] {
+  --bg: #F2F5FF; --surface-2: #FFFFFF; --pill: #EAEFFF;
+  --ink: #16204A; --muted: #5B628C; --line: #DBE1FA;
+  --blue: #2F6FED; --green: #16A34A; --yellow: #F0A400; --pink: #EE3D8B;
+  --good: #16A34A; --bad: #E23B5A; --shadow: 0 16px 36px rgba(24,32,80,.14);
+}
 * { box-sizing: border-box; }
-html, body { margin:0; padding:0; background:var(--paper); color:var(--ink);
+html, body { margin:0; padding:0; background:var(--bg); color:var(--ink);
   font-family:"Pretendard Variable","Apple SD Gothic Neo","Malgun Gothic",-apple-system,"Segoe UI",sans-serif; }
 a { color: inherit; }
 
-.wrap { max-width: 1180px; margin: 0 auto; padding: clamp(2rem,5vw,4.5rem) clamp(1.2rem,4vw,2rem) 5rem; }
+body { position: relative; overflow-x: hidden; }
+body::before, body::after {
+  content: ""; position: fixed; z-index: 0; border-radius: 50%; pointer-events: none; filter: blur(2px);
+}
+body::before { top:-14vw; left:-10vw; width:44vw; height:44vw;
+  background: radial-gradient(circle, color-mix(in srgb, var(--blue) 18%, transparent), transparent 70%); }
+body::after { bottom:-18vw; right:-12vw; width:52vw; height:52vw;
+  background: radial-gradient(circle, color-mix(in srgb, var(--pink) 15%, transparent), transparent 70%); }
+.wrap { position:relative; z-index:1; max-width: 1180px; margin: 0 auto; padding: clamp(2rem,5vw,4.5rem) clamp(1.2rem,4vw,2rem) 5rem; }
 header { text-align:center; margin-bottom: clamp(2rem,5vw,3.5rem); }
-.eyebrow { font-size:.82rem; letter-spacing:.14em; text-transform:uppercase; color:var(--accent-2); font-weight:700; }
+.eyebrow { display:inline-block; font-size:.78rem; letter-spacing:.1em; color:#fff; background:var(--blue);
+  font-weight:800; padding:.35em 1em; border-radius:999px; }
 h1 { font-family: "Pretendard Variable", "Apple SD Gothic Neo", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
-      font-weight: 800; letter-spacing: -.01em; font-size: clamp(2rem, 4.4vw, 3.2rem);
-      margin:.35em 0 .3em; text-wrap: balance; }
-.sub { color: var(--muted); font-size: 1.02rem; max-width: 56ch; margin: 0 auto; line-height:1.6; }
+      font-weight: 900; letter-spacing: -.01em; font-size: clamp(2.1rem, 4.6vw, 3.4rem);
+      margin:.5em 0 .3em; text-wrap: balance; }
+.sub { color: var(--muted); font-weight:600; font-size: 1.05rem; max-width: 56ch; margin: 0 auto; line-height:1.6; }
 .notice { margin-top: .9rem; font-size: .8rem; color: var(--muted); font-style: italic; }
-.grid { display:grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 1rem; }
+.grid { display:grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 1.1rem; }
 .card {
-  display:flex; flex-direction:column; align-items:center; gap:.35rem;
-  background: var(--paper-2); border:1px solid var(--line); border-radius: 1rem;
-  padding: 1.6rem 1rem 1.3rem; text-decoration:none; color:inherit;
+  display:flex; flex-direction:column; align-items:center; gap:.4rem;
+  background: var(--surface-2); border:2px solid var(--line); border-radius: 1.3rem;
+  padding: 1.7rem 1rem 1.4rem; text-decoration:none; color:inherit;
   transition: transform .15s ease, border-color .15s ease, box-shadow .15s ease;
 }
-.card:hover, .card:focus-visible { transform: translateY(-3px); border-color: var(--accent); box-shadow: var(--shadow); outline:none; }
-.card .icon { display:flex; align-items:center; justify-content:center; height:2.4rem; }
+.card:hover, .card:focus-visible { transform: translateY(-4px) scale(1.02); border-color: var(--card-color); box-shadow: var(--shadow); outline:none; }
+.card .icon { display:flex; align-items:center; justify-content:center; width:3.1rem; height:3.1rem; border-radius:999px; }
 .card .num { font-variant-numeric: tabular-nums; font-weight:800; font-size:.78rem; letter-spacing:.08em; color: var(--muted); }
-.card .title { font-family: "Pretendard Variable", "Apple SD Gothic Neo", "Segoe UI", sans-serif; font-weight:800; font-size:1.25rem; }
-.card .meta { font-size:.72rem; color: var(--muted); letter-spacing:.02em; }
-footer { text-align:center; margin-top: 3rem; color: var(--muted); font-size:.78rem; }
+.card .title { font-family: "Pretendard Variable", "Apple SD Gothic Neo", "Segoe UI", sans-serif; font-weight:900; font-size:1.3rem; color: var(--card-color); }
+.card .meta { font-size:.72rem; color: var(--muted); font-weight:600; letter-spacing:.02em; }
+footer { position:relative; z-index:1; text-align:center; margin-top: 3rem; color: var(--muted); font-size:.78rem; font-weight:600; }
 </style>
 
 <div class="wrap">
@@ -51,280 +75,280 @@ footer { text-align:center; margin-top: 3rem; color: var(--muted); font-size:.78
     <p class="notice">※ 모든 지문·문항은 실제 ETS 기출문제가 아닌 학습용 자체 제작 예시입니다.</p>
   </header>
   <nav class="grid">
-      <a class="card" href="session-1.html">
-        <span class="icon" aria-hidden="true">
-          <svg viewBox="0 0 48 48" width="34" height="34">
-            <rect x="6"  y="18" width="5" height="12" rx="2.5" fill="var(--accent)"/>
-            <rect x="15" y="10" width="5" height="28" rx="2.5" fill="var(--accent)"/>
-            <rect x="24" y="4"  width="5" height="40" rx="2.5" fill="var(--accent)"/>
-            <rect x="33" y="14" width="5" height="20" rx="2.5" fill="var(--accent)"/>
-            <rect x="42" y="20" width="5" height="8"  rx="2.5" fill="var(--accent)"/>
+      <a class="card" href="session-1.html" style="--card-color:var(--blue)">
+        <span class="icon" aria-hidden="true" style="background:var(--blue)">
+          <svg viewBox="0 0 48 48" width="26" height="26">
+            <rect x="6"  y="18" width="5" height="12" rx="2.5" fill="#fff"/>
+            <rect x="15" y="10" width="5" height="28" rx="2.5" fill="#fff"/>
+            <rect x="24" y="4"  width="5" height="40" rx="2.5" fill="#fff"/>
+            <rect x="33" y="14" width="5" height="20" rx="2.5" fill="#fff"/>
+            <rect x="42" y="20" width="5" height="8"  rx="2.5" fill="#fff"/>
           </svg>
         </span>
         <span class="num">01</span>
         <span class="title">1차시</span>
         <span class="meta">Part 3 · 4 &nbsp;·&nbsp; 12문항</span>
       </a>
-      <a class="card" href="session-2.html">
-        <span class="icon" aria-hidden="true">
-          <svg viewBox="0 0 48 48" width="34" height="34">
-            <rect x="6"  y="18" width="5" height="12" rx="2.5" fill="var(--accent)"/>
-            <rect x="15" y="10" width="5" height="28" rx="2.5" fill="var(--accent)"/>
-            <rect x="24" y="4"  width="5" height="40" rx="2.5" fill="var(--accent)"/>
-            <rect x="33" y="14" width="5" height="20" rx="2.5" fill="var(--accent)"/>
-            <rect x="42" y="20" width="5" height="8"  rx="2.5" fill="var(--accent)"/>
+      <a class="card" href="session-2.html" style="--card-color:var(--green)">
+        <span class="icon" aria-hidden="true" style="background:var(--green)">
+          <svg viewBox="0 0 48 48" width="26" height="26">
+            <rect x="6"  y="18" width="5" height="12" rx="2.5" fill="#fff"/>
+            <rect x="15" y="10" width="5" height="28" rx="2.5" fill="#fff"/>
+            <rect x="24" y="4"  width="5" height="40" rx="2.5" fill="#fff"/>
+            <rect x="33" y="14" width="5" height="20" rx="2.5" fill="#fff"/>
+            <rect x="42" y="20" width="5" height="8"  rx="2.5" fill="#fff"/>
           </svg>
         </span>
         <span class="num">02</span>
         <span class="title">2차시</span>
         <span class="meta">Part 3 · 4 &nbsp;·&nbsp; 12문항</span>
       </a>
-      <a class="card" href="session-3.html">
-        <span class="icon" aria-hidden="true">
-          <svg viewBox="0 0 48 48" width="34" height="34">
-            <rect x="6"  y="18" width="5" height="12" rx="2.5" fill="var(--accent)"/>
-            <rect x="15" y="10" width="5" height="28" rx="2.5" fill="var(--accent)"/>
-            <rect x="24" y="4"  width="5" height="40" rx="2.5" fill="var(--accent)"/>
-            <rect x="33" y="14" width="5" height="20" rx="2.5" fill="var(--accent)"/>
-            <rect x="42" y="20" width="5" height="8"  rx="2.5" fill="var(--accent)"/>
+      <a class="card" href="session-3.html" style="--card-color:var(--yellow)">
+        <span class="icon" aria-hidden="true" style="background:var(--yellow)">
+          <svg viewBox="0 0 48 48" width="26" height="26">
+            <rect x="6"  y="18" width="5" height="12" rx="2.5" fill="#fff"/>
+            <rect x="15" y="10" width="5" height="28" rx="2.5" fill="#fff"/>
+            <rect x="24" y="4"  width="5" height="40" rx="2.5" fill="#fff"/>
+            <rect x="33" y="14" width="5" height="20" rx="2.5" fill="#fff"/>
+            <rect x="42" y="20" width="5" height="8"  rx="2.5" fill="#fff"/>
           </svg>
         </span>
         <span class="num">03</span>
         <span class="title">3차시</span>
         <span class="meta">Part 3 · 4 &nbsp;·&nbsp; 12문항</span>
       </a>
-      <a class="card" href="session-4.html">
-        <span class="icon" aria-hidden="true">
-          <svg viewBox="0 0 48 48" width="34" height="34">
-            <rect x="6"  y="18" width="5" height="12" rx="2.5" fill="var(--accent)"/>
-            <rect x="15" y="10" width="5" height="28" rx="2.5" fill="var(--accent)"/>
-            <rect x="24" y="4"  width="5" height="40" rx="2.5" fill="var(--accent)"/>
-            <rect x="33" y="14" width="5" height="20" rx="2.5" fill="var(--accent)"/>
-            <rect x="42" y="20" width="5" height="8"  rx="2.5" fill="var(--accent)"/>
+      <a class="card" href="session-4.html" style="--card-color:var(--pink)">
+        <span class="icon" aria-hidden="true" style="background:var(--pink)">
+          <svg viewBox="0 0 48 48" width="26" height="26">
+            <rect x="6"  y="18" width="5" height="12" rx="2.5" fill="#fff"/>
+            <rect x="15" y="10" width="5" height="28" rx="2.5" fill="#fff"/>
+            <rect x="24" y="4"  width="5" height="40" rx="2.5" fill="#fff"/>
+            <rect x="33" y="14" width="5" height="20" rx="2.5" fill="#fff"/>
+            <rect x="42" y="20" width="5" height="8"  rx="2.5" fill="#fff"/>
           </svg>
         </span>
         <span class="num">04</span>
         <span class="title">4차시</span>
         <span class="meta">Part 3 · 4 &nbsp;·&nbsp; 12문항</span>
       </a>
-      <a class="card" href="session-5.html">
-        <span class="icon" aria-hidden="true">
-          <svg viewBox="0 0 48 48" width="34" height="34">
-            <rect x="6"  y="18" width="5" height="12" rx="2.5" fill="var(--accent)"/>
-            <rect x="15" y="10" width="5" height="28" rx="2.5" fill="var(--accent)"/>
-            <rect x="24" y="4"  width="5" height="40" rx="2.5" fill="var(--accent)"/>
-            <rect x="33" y="14" width="5" height="20" rx="2.5" fill="var(--accent)"/>
-            <rect x="42" y="20" width="5" height="8"  rx="2.5" fill="var(--accent)"/>
+      <a class="card" href="session-5.html" style="--card-color:var(--blue)">
+        <span class="icon" aria-hidden="true" style="background:var(--blue)">
+          <svg viewBox="0 0 48 48" width="26" height="26">
+            <rect x="6"  y="18" width="5" height="12" rx="2.5" fill="#fff"/>
+            <rect x="15" y="10" width="5" height="28" rx="2.5" fill="#fff"/>
+            <rect x="24" y="4"  width="5" height="40" rx="2.5" fill="#fff"/>
+            <rect x="33" y="14" width="5" height="20" rx="2.5" fill="#fff"/>
+            <rect x="42" y="20" width="5" height="8"  rx="2.5" fill="#fff"/>
           </svg>
         </span>
         <span class="num">05</span>
         <span class="title">5차시</span>
         <span class="meta">Part 3 · 4 &nbsp;·&nbsp; 12문항</span>
       </a>
-      <a class="card" href="session-6.html">
-        <span class="icon" aria-hidden="true">
-          <svg viewBox="0 0 48 48" width="34" height="34">
-            <rect x="6"  y="18" width="5" height="12" rx="2.5" fill="var(--accent)"/>
-            <rect x="15" y="10" width="5" height="28" rx="2.5" fill="var(--accent)"/>
-            <rect x="24" y="4"  width="5" height="40" rx="2.5" fill="var(--accent)"/>
-            <rect x="33" y="14" width="5" height="20" rx="2.5" fill="var(--accent)"/>
-            <rect x="42" y="20" width="5" height="8"  rx="2.5" fill="var(--accent)"/>
+      <a class="card" href="session-6.html" style="--card-color:var(--green)">
+        <span class="icon" aria-hidden="true" style="background:var(--green)">
+          <svg viewBox="0 0 48 48" width="26" height="26">
+            <rect x="6"  y="18" width="5" height="12" rx="2.5" fill="#fff"/>
+            <rect x="15" y="10" width="5" height="28" rx="2.5" fill="#fff"/>
+            <rect x="24" y="4"  width="5" height="40" rx="2.5" fill="#fff"/>
+            <rect x="33" y="14" width="5" height="20" rx="2.5" fill="#fff"/>
+            <rect x="42" y="20" width="5" height="8"  rx="2.5" fill="#fff"/>
           </svg>
         </span>
         <span class="num">06</span>
         <span class="title">6차시</span>
         <span class="meta">Part 3 · 4 &nbsp;·&nbsp; 12문항</span>
       </a>
-      <a class="card" href="session-7.html">
-        <span class="icon" aria-hidden="true">
-          <svg viewBox="0 0 48 48" width="34" height="34">
-            <rect x="6"  y="18" width="5" height="12" rx="2.5" fill="var(--accent)"/>
-            <rect x="15" y="10" width="5" height="28" rx="2.5" fill="var(--accent)"/>
-            <rect x="24" y="4"  width="5" height="40" rx="2.5" fill="var(--accent)"/>
-            <rect x="33" y="14" width="5" height="20" rx="2.5" fill="var(--accent)"/>
-            <rect x="42" y="20" width="5" height="8"  rx="2.5" fill="var(--accent)"/>
+      <a class="card" href="session-7.html" style="--card-color:var(--yellow)">
+        <span class="icon" aria-hidden="true" style="background:var(--yellow)">
+          <svg viewBox="0 0 48 48" width="26" height="26">
+            <rect x="6"  y="18" width="5" height="12" rx="2.5" fill="#fff"/>
+            <rect x="15" y="10" width="5" height="28" rx="2.5" fill="#fff"/>
+            <rect x="24" y="4"  width="5" height="40" rx="2.5" fill="#fff"/>
+            <rect x="33" y="14" width="5" height="20" rx="2.5" fill="#fff"/>
+            <rect x="42" y="20" width="5" height="8"  rx="2.5" fill="#fff"/>
           </svg>
         </span>
         <span class="num">07</span>
         <span class="title">7차시</span>
         <span class="meta">Part 3 · 4 &nbsp;·&nbsp; 12문항</span>
       </a>
-      <a class="card" href="session-8.html">
-        <span class="icon" aria-hidden="true">
-          <svg viewBox="0 0 48 48" width="34" height="34">
-            <rect x="6"  y="18" width="5" height="12" rx="2.5" fill="var(--accent)"/>
-            <rect x="15" y="10" width="5" height="28" rx="2.5" fill="var(--accent)"/>
-            <rect x="24" y="4"  width="5" height="40" rx="2.5" fill="var(--accent)"/>
-            <rect x="33" y="14" width="5" height="20" rx="2.5" fill="var(--accent)"/>
-            <rect x="42" y="20" width="5" height="8"  rx="2.5" fill="var(--accent)"/>
+      <a class="card" href="session-8.html" style="--card-color:var(--pink)">
+        <span class="icon" aria-hidden="true" style="background:var(--pink)">
+          <svg viewBox="0 0 48 48" width="26" height="26">
+            <rect x="6"  y="18" width="5" height="12" rx="2.5" fill="#fff"/>
+            <rect x="15" y="10" width="5" height="28" rx="2.5" fill="#fff"/>
+            <rect x="24" y="4"  width="5" height="40" rx="2.5" fill="#fff"/>
+            <rect x="33" y="14" width="5" height="20" rx="2.5" fill="#fff"/>
+            <rect x="42" y="20" width="5" height="8"  rx="2.5" fill="#fff"/>
           </svg>
         </span>
         <span class="num">08</span>
         <span class="title">8차시</span>
         <span class="meta">Part 3 · 4 &nbsp;·&nbsp; 12문항</span>
       </a>
-      <a class="card" href="session-9.html">
-        <span class="icon" aria-hidden="true">
-          <svg viewBox="0 0 48 48" width="34" height="34">
-            <rect x="6"  y="18" width="5" height="12" rx="2.5" fill="var(--accent)"/>
-            <rect x="15" y="10" width="5" height="28" rx="2.5" fill="var(--accent)"/>
-            <rect x="24" y="4"  width="5" height="40" rx="2.5" fill="var(--accent)"/>
-            <rect x="33" y="14" width="5" height="20" rx="2.5" fill="var(--accent)"/>
-            <rect x="42" y="20" width="5" height="8"  rx="2.5" fill="var(--accent)"/>
+      <a class="card" href="session-9.html" style="--card-color:var(--blue)">
+        <span class="icon" aria-hidden="true" style="background:var(--blue)">
+          <svg viewBox="0 0 48 48" width="26" height="26">
+            <rect x="6"  y="18" width="5" height="12" rx="2.5" fill="#fff"/>
+            <rect x="15" y="10" width="5" height="28" rx="2.5" fill="#fff"/>
+            <rect x="24" y="4"  width="5" height="40" rx="2.5" fill="#fff"/>
+            <rect x="33" y="14" width="5" height="20" rx="2.5" fill="#fff"/>
+            <rect x="42" y="20" width="5" height="8"  rx="2.5" fill="#fff"/>
           </svg>
         </span>
         <span class="num">09</span>
         <span class="title">9차시</span>
         <span class="meta">Part 3 · 4 &nbsp;·&nbsp; 12문항</span>
       </a>
-      <a class="card" href="session-10.html">
-        <span class="icon" aria-hidden="true">
-          <svg viewBox="0 0 48 48" width="34" height="34">
-            <rect x="6"  y="18" width="5" height="12" rx="2.5" fill="var(--accent)"/>
-            <rect x="15" y="10" width="5" height="28" rx="2.5" fill="var(--accent)"/>
-            <rect x="24" y="4"  width="5" height="40" rx="2.5" fill="var(--accent)"/>
-            <rect x="33" y="14" width="5" height="20" rx="2.5" fill="var(--accent)"/>
-            <rect x="42" y="20" width="5" height="8"  rx="2.5" fill="var(--accent)"/>
+      <a class="card" href="session-10.html" style="--card-color:var(--green)">
+        <span class="icon" aria-hidden="true" style="background:var(--green)">
+          <svg viewBox="0 0 48 48" width="26" height="26">
+            <rect x="6"  y="18" width="5" height="12" rx="2.5" fill="#fff"/>
+            <rect x="15" y="10" width="5" height="28" rx="2.5" fill="#fff"/>
+            <rect x="24" y="4"  width="5" height="40" rx="2.5" fill="#fff"/>
+            <rect x="33" y="14" width="5" height="20" rx="2.5" fill="#fff"/>
+            <rect x="42" y="20" width="5" height="8"  rx="2.5" fill="#fff"/>
           </svg>
         </span>
         <span class="num">10</span>
         <span class="title">10차시</span>
         <span class="meta">Part 3 · 4 &nbsp;·&nbsp; 12문항</span>
       </a>
-      <a class="card" href="session-11.html">
-        <span class="icon" aria-hidden="true">
-          <svg viewBox="0 0 48 48" width="34" height="34">
-            <rect x="6"  y="18" width="5" height="12" rx="2.5" fill="var(--accent)"/>
-            <rect x="15" y="10" width="5" height="28" rx="2.5" fill="var(--accent)"/>
-            <rect x="24" y="4"  width="5" height="40" rx="2.5" fill="var(--accent)"/>
-            <rect x="33" y="14" width="5" height="20" rx="2.5" fill="var(--accent)"/>
-            <rect x="42" y="20" width="5" height="8"  rx="2.5" fill="var(--accent)"/>
+      <a class="card" href="session-11.html" style="--card-color:var(--yellow)">
+        <span class="icon" aria-hidden="true" style="background:var(--yellow)">
+          <svg viewBox="0 0 48 48" width="26" height="26">
+            <rect x="6"  y="18" width="5" height="12" rx="2.5" fill="#fff"/>
+            <rect x="15" y="10" width="5" height="28" rx="2.5" fill="#fff"/>
+            <rect x="24" y="4"  width="5" height="40" rx="2.5" fill="#fff"/>
+            <rect x="33" y="14" width="5" height="20" rx="2.5" fill="#fff"/>
+            <rect x="42" y="20" width="5" height="8"  rx="2.5" fill="#fff"/>
           </svg>
         </span>
         <span class="num">11</span>
         <span class="title">11차시</span>
         <span class="meta">Part 3 · 4 &nbsp;·&nbsp; 12문항</span>
       </a>
-      <a class="card" href="session-12.html">
-        <span class="icon" aria-hidden="true">
-          <svg viewBox="0 0 48 48" width="34" height="34">
-            <rect x="6"  y="18" width="5" height="12" rx="2.5" fill="var(--accent)"/>
-            <rect x="15" y="10" width="5" height="28" rx="2.5" fill="var(--accent)"/>
-            <rect x="24" y="4"  width="5" height="40" rx="2.5" fill="var(--accent)"/>
-            <rect x="33" y="14" width="5" height="20" rx="2.5" fill="var(--accent)"/>
-            <rect x="42" y="20" width="5" height="8"  rx="2.5" fill="var(--accent)"/>
+      <a class="card" href="session-12.html" style="--card-color:var(--pink)">
+        <span class="icon" aria-hidden="true" style="background:var(--pink)">
+          <svg viewBox="0 0 48 48" width="26" height="26">
+            <rect x="6"  y="18" width="5" height="12" rx="2.5" fill="#fff"/>
+            <rect x="15" y="10" width="5" height="28" rx="2.5" fill="#fff"/>
+            <rect x="24" y="4"  width="5" height="40" rx="2.5" fill="#fff"/>
+            <rect x="33" y="14" width="5" height="20" rx="2.5" fill="#fff"/>
+            <rect x="42" y="20" width="5" height="8"  rx="2.5" fill="#fff"/>
           </svg>
         </span>
         <span class="num">12</span>
         <span class="title">12차시</span>
         <span class="meta">Part 3 · 4 &nbsp;·&nbsp; 12문항</span>
       </a>
-      <a class="card" href="session-13.html">
-        <span class="icon" aria-hidden="true">
-          <svg viewBox="0 0 48 48" width="34" height="34">
-            <rect x="6"  y="18" width="5" height="12" rx="2.5" fill="var(--accent)"/>
-            <rect x="15" y="10" width="5" height="28" rx="2.5" fill="var(--accent)"/>
-            <rect x="24" y="4"  width="5" height="40" rx="2.5" fill="var(--accent)"/>
-            <rect x="33" y="14" width="5" height="20" rx="2.5" fill="var(--accent)"/>
-            <rect x="42" y="20" width="5" height="8"  rx="2.5" fill="var(--accent)"/>
+      <a class="card" href="session-13.html" style="--card-color:var(--blue)">
+        <span class="icon" aria-hidden="true" style="background:var(--blue)">
+          <svg viewBox="0 0 48 48" width="26" height="26">
+            <rect x="6"  y="18" width="5" height="12" rx="2.5" fill="#fff"/>
+            <rect x="15" y="10" width="5" height="28" rx="2.5" fill="#fff"/>
+            <rect x="24" y="4"  width="5" height="40" rx="2.5" fill="#fff"/>
+            <rect x="33" y="14" width="5" height="20" rx="2.5" fill="#fff"/>
+            <rect x="42" y="20" width="5" height="8"  rx="2.5" fill="#fff"/>
           </svg>
         </span>
         <span class="num">13</span>
         <span class="title">13차시</span>
         <span class="meta">Part 3 · 4 &nbsp;·&nbsp; 12문항</span>
       </a>
-      <a class="card" href="session-14.html">
-        <span class="icon" aria-hidden="true">
-          <svg viewBox="0 0 48 48" width="34" height="34">
-            <rect x="6"  y="18" width="5" height="12" rx="2.5" fill="var(--accent)"/>
-            <rect x="15" y="10" width="5" height="28" rx="2.5" fill="var(--accent)"/>
-            <rect x="24" y="4"  width="5" height="40" rx="2.5" fill="var(--accent)"/>
-            <rect x="33" y="14" width="5" height="20" rx="2.5" fill="var(--accent)"/>
-            <rect x="42" y="20" width="5" height="8"  rx="2.5" fill="var(--accent)"/>
+      <a class="card" href="session-14.html" style="--card-color:var(--green)">
+        <span class="icon" aria-hidden="true" style="background:var(--green)">
+          <svg viewBox="0 0 48 48" width="26" height="26">
+            <rect x="6"  y="18" width="5" height="12" rx="2.5" fill="#fff"/>
+            <rect x="15" y="10" width="5" height="28" rx="2.5" fill="#fff"/>
+            <rect x="24" y="4"  width="5" height="40" rx="2.5" fill="#fff"/>
+            <rect x="33" y="14" width="5" height="20" rx="2.5" fill="#fff"/>
+            <rect x="42" y="20" width="5" height="8"  rx="2.5" fill="#fff"/>
           </svg>
         </span>
         <span class="num">14</span>
         <span class="title">14차시</span>
         <span class="meta">Part 3 · 4 &nbsp;·&nbsp; 12문항</span>
       </a>
-      <a class="card" href="session-15.html">
-        <span class="icon" aria-hidden="true">
-          <svg viewBox="0 0 48 48" width="34" height="34">
-            <rect x="6"  y="18" width="5" height="12" rx="2.5" fill="var(--accent)"/>
-            <rect x="15" y="10" width="5" height="28" rx="2.5" fill="var(--accent)"/>
-            <rect x="24" y="4"  width="5" height="40" rx="2.5" fill="var(--accent)"/>
-            <rect x="33" y="14" width="5" height="20" rx="2.5" fill="var(--accent)"/>
-            <rect x="42" y="20" width="5" height="8"  rx="2.5" fill="var(--accent)"/>
+      <a class="card" href="session-15.html" style="--card-color:var(--yellow)">
+        <span class="icon" aria-hidden="true" style="background:var(--yellow)">
+          <svg viewBox="0 0 48 48" width="26" height="26">
+            <rect x="6"  y="18" width="5" height="12" rx="2.5" fill="#fff"/>
+            <rect x="15" y="10" width="5" height="28" rx="2.5" fill="#fff"/>
+            <rect x="24" y="4"  width="5" height="40" rx="2.5" fill="#fff"/>
+            <rect x="33" y="14" width="5" height="20" rx="2.5" fill="#fff"/>
+            <rect x="42" y="20" width="5" height="8"  rx="2.5" fill="#fff"/>
           </svg>
         </span>
         <span class="num">15</span>
         <span class="title">15차시</span>
         <span class="meta">Part 3 · 4 &nbsp;·&nbsp; 12문항</span>
       </a>
-      <a class="card" href="session-16.html">
-        <span class="icon" aria-hidden="true">
-          <svg viewBox="0 0 48 48" width="34" height="34">
-            <rect x="6"  y="18" width="5" height="12" rx="2.5" fill="var(--accent)"/>
-            <rect x="15" y="10" width="5" height="28" rx="2.5" fill="var(--accent)"/>
-            <rect x="24" y="4"  width="5" height="40" rx="2.5" fill="var(--accent)"/>
-            <rect x="33" y="14" width="5" height="20" rx="2.5" fill="var(--accent)"/>
-            <rect x="42" y="20" width="5" height="8"  rx="2.5" fill="var(--accent)"/>
+      <a class="card" href="session-16.html" style="--card-color:var(--pink)">
+        <span class="icon" aria-hidden="true" style="background:var(--pink)">
+          <svg viewBox="0 0 48 48" width="26" height="26">
+            <rect x="6"  y="18" width="5" height="12" rx="2.5" fill="#fff"/>
+            <rect x="15" y="10" width="5" height="28" rx="2.5" fill="#fff"/>
+            <rect x="24" y="4"  width="5" height="40" rx="2.5" fill="#fff"/>
+            <rect x="33" y="14" width="5" height="20" rx="2.5" fill="#fff"/>
+            <rect x="42" y="20" width="5" height="8"  rx="2.5" fill="#fff"/>
           </svg>
         </span>
         <span class="num">16</span>
         <span class="title">16차시</span>
         <span class="meta">Part 3 · 4 &nbsp;·&nbsp; 12문항</span>
       </a>
-      <a class="card" href="session-17.html">
-        <span class="icon" aria-hidden="true">
-          <svg viewBox="0 0 48 48" width="34" height="34">
-            <rect x="6"  y="18" width="5" height="12" rx="2.5" fill="var(--accent)"/>
-            <rect x="15" y="10" width="5" height="28" rx="2.5" fill="var(--accent)"/>
-            <rect x="24" y="4"  width="5" height="40" rx="2.5" fill="var(--accent)"/>
-            <rect x="33" y="14" width="5" height="20" rx="2.5" fill="var(--accent)"/>
-            <rect x="42" y="20" width="5" height="8"  rx="2.5" fill="var(--accent)"/>
+      <a class="card" href="session-17.html" style="--card-color:var(--blue)">
+        <span class="icon" aria-hidden="true" style="background:var(--blue)">
+          <svg viewBox="0 0 48 48" width="26" height="26">
+            <rect x="6"  y="18" width="5" height="12" rx="2.5" fill="#fff"/>
+            <rect x="15" y="10" width="5" height="28" rx="2.5" fill="#fff"/>
+            <rect x="24" y="4"  width="5" height="40" rx="2.5" fill="#fff"/>
+            <rect x="33" y="14" width="5" height="20" rx="2.5" fill="#fff"/>
+            <rect x="42" y="20" width="5" height="8"  rx="2.5" fill="#fff"/>
           </svg>
         </span>
         <span class="num">17</span>
         <span class="title">17차시</span>
         <span class="meta">Part 3 · 4 &nbsp;·&nbsp; 12문항</span>
       </a>
-      <a class="card" href="session-18.html">
-        <span class="icon" aria-hidden="true">
-          <svg viewBox="0 0 48 48" width="34" height="34">
-            <rect x="6"  y="18" width="5" height="12" rx="2.5" fill="var(--accent)"/>
-            <rect x="15" y="10" width="5" height="28" rx="2.5" fill="var(--accent)"/>
-            <rect x="24" y="4"  width="5" height="40" rx="2.5" fill="var(--accent)"/>
-            <rect x="33" y="14" width="5" height="20" rx="2.5" fill="var(--accent)"/>
-            <rect x="42" y="20" width="5" height="8"  rx="2.5" fill="var(--accent)"/>
+      <a class="card" href="session-18.html" style="--card-color:var(--green)">
+        <span class="icon" aria-hidden="true" style="background:var(--green)">
+          <svg viewBox="0 0 48 48" width="26" height="26">
+            <rect x="6"  y="18" width="5" height="12" rx="2.5" fill="#fff"/>
+            <rect x="15" y="10" width="5" height="28" rx="2.5" fill="#fff"/>
+            <rect x="24" y="4"  width="5" height="40" rx="2.5" fill="#fff"/>
+            <rect x="33" y="14" width="5" height="20" rx="2.5" fill="#fff"/>
+            <rect x="42" y="20" width="5" height="8"  rx="2.5" fill="#fff"/>
           </svg>
         </span>
         <span class="num">18</span>
         <span class="title">18차시</span>
         <span class="meta">Part 3 · 4 &nbsp;·&nbsp; 12문항</span>
       </a>
-      <a class="card" href="session-19.html">
-        <span class="icon" aria-hidden="true">
-          <svg viewBox="0 0 48 48" width="34" height="34">
-            <rect x="6"  y="18" width="5" height="12" rx="2.5" fill="var(--accent)"/>
-            <rect x="15" y="10" width="5" height="28" rx="2.5" fill="var(--accent)"/>
-            <rect x="24" y="4"  width="5" height="40" rx="2.5" fill="var(--accent)"/>
-            <rect x="33" y="14" width="5" height="20" rx="2.5" fill="var(--accent)"/>
-            <rect x="42" y="20" width="5" height="8"  rx="2.5" fill="var(--accent)"/>
+      <a class="card" href="session-19.html" style="--card-color:var(--yellow)">
+        <span class="icon" aria-hidden="true" style="background:var(--yellow)">
+          <svg viewBox="0 0 48 48" width="26" height="26">
+            <rect x="6"  y="18" width="5" height="12" rx="2.5" fill="#fff"/>
+            <rect x="15" y="10" width="5" height="28" rx="2.5" fill="#fff"/>
+            <rect x="24" y="4"  width="5" height="40" rx="2.5" fill="#fff"/>
+            <rect x="33" y="14" width="5" height="20" rx="2.5" fill="#fff"/>
+            <rect x="42" y="20" width="5" height="8"  rx="2.5" fill="#fff"/>
           </svg>
         </span>
         <span class="num">19</span>
         <span class="title">19차시</span>
         <span class="meta">Part 3 · 4 &nbsp;·&nbsp; 12문항</span>
       </a>
-      <a class="card" href="session-20.html">
-        <span class="icon" aria-hidden="true">
-          <svg viewBox="0 0 48 48" width="34" height="34">
-            <rect x="6"  y="18" width="5" height="12" rx="2.5" fill="var(--accent)"/>
-            <rect x="15" y="10" width="5" height="28" rx="2.5" fill="var(--accent)"/>
-            <rect x="24" y="4"  width="5" height="40" rx="2.5" fill="var(--accent)"/>
-            <rect x="33" y="14" width="5" height="20" rx="2.5" fill="var(--accent)"/>
-            <rect x="42" y="20" width="5" height="8"  rx="2.5" fill="var(--accent)"/>
+      <a class="card" href="session-20.html" style="--card-color:var(--pink)">
+        <span class="icon" aria-hidden="true" style="background:var(--pink)">
+          <svg viewBox="0 0 48 48" width="26" height="26">
+            <rect x="6"  y="18" width="5" height="12" rx="2.5" fill="#fff"/>
+            <rect x="15" y="10" width="5" height="28" rx="2.5" fill="#fff"/>
+            <rect x="24" y="4"  width="5" height="40" rx="2.5" fill="#fff"/>
+            <rect x="33" y="14" width="5" height="20" rx="2.5" fill="#fff"/>
+            <rect x="42" y="20" width="5" height="8"  rx="2.5" fill="#fff"/>
           </svg>
         </span>
         <span class="num">20</span>

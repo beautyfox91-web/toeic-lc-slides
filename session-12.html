@@ -2,36 +2,57 @@
 <title>12차시 · TOEIC LC 슬라이드</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <style>
-@font-face { font-family: "Fraunces Var"; src: local("Fraunces"); }
 :root {
-  --ink: #16202E; --paper: #EEF1F4; --paper-2: #E1E6EA;
-  --accent: #B8863A; --accent-2: #8A6526; --muted: #5B6572; --line: #CCD3D9;
-  --good: #2F7A4F; --bad: #B23A3A; --shadow: 0 10px 30px rgba(22,32,46,0.08);
+  --bg: #F2F5FF; --surface-2: #FFFFFF; --pill: #EAEFFF;
+  --ink: #16204A; --muted: #5B628C; --line: #DBE1FA;
+  --blue: #2F6FED; --green: #16A34A; --yellow: #F0A400; --pink: #EE3D8B;
+  --good: #16A34A; --bad: #E23B5A; --shadow: 0 16px 36px rgba(24,32,80,.14);
 }
 @media (prefers-color-scheme: dark) {
-  :root { --ink:#ECEFF2; --paper:#12181F; --paper-2:#1B232C; --accent:#E0AA55; --accent-2:#F0C077; --muted:#97A3AF; --line:#2B333D; --good:#4FAE73; --bad:#E06666; --shadow:0 10px 30px rgba(0,0,0,0.4); }
+  :root {
+    --bg: #121632; --surface-2: #1D2350; --pill: #262C5C;
+    --ink: #EEF1FF; --muted: #A6ADDA; --line: #333B72;
+    --blue: #82A6FF; --green: #4ADE94; --yellow: #FFC94D; --pink: #FF74B8;
+    --good: #4ADE94; --bad: #FF6E86; --shadow: 0 16px 36px rgba(0,0,0,.55);
+  }
 }
-:root[data-theme="dark"] { --ink:#ECEFF2; --paper:#12181F; --paper-2:#1B232C; --accent:#E0AA55; --accent-2:#F0C077; --muted:#97A3AF; --line:#2B333D; --good:#4FAE73; --bad:#E06666; --shadow:0 10px 30px rgba(0,0,0,0.4); }
-:root[data-theme="light"] { --ink:#16202E; --paper:#EEF1F4; --paper-2:#E1E6EA; --accent:#B8863A; --accent-2:#8A6526; --muted:#5B6572; --line:#CCD3D9; --good:#2F7A4F; --bad:#B23A3A; --shadow:0 10px 30px rgba(22,32,46,0.08); }
+:root[data-theme="dark"] {
+  --bg: #121632; --surface-2: #1D2350; --pill: #262C5C;
+  --ink: #EEF1FF; --muted: #A6ADDA; --line: #333B72;
+  --blue: #82A6FF; --green: #4ADE94; --yellow: #FFC94D; --pink: #FF74B8;
+  --good: #4ADE94; --bad: #FF6E86; --shadow: 0 16px 36px rgba(0,0,0,.55);
+}
+:root[data-theme="light"] {
+  --bg: #F2F5FF; --surface-2: #FFFFFF; --pill: #EAEFFF;
+  --ink: #16204A; --muted: #5B628C; --line: #DBE1FA;
+  --blue: #2F6FED; --green: #16A34A; --yellow: #F0A400; --pink: #EE3D8B;
+  --good: #16A34A; --bad: #E23B5A; --shadow: 0 16px 36px rgba(24,32,80,.14);
+}
 * { box-sizing: border-box; }
-html, body { margin:0; padding:0; background:var(--paper); color:var(--ink);
+html, body { margin:0; padding:0; background:var(--bg); color:var(--ink);
   font-family:"Pretendard Variable","Apple SD Gothic Neo","Malgun Gothic",-apple-system,"Segoe UI",sans-serif; }
 a { color: inherit; }
 
 html, body { height:100%; overflow:hidden; }
-.deck { position:relative; height:100vh; height:100dvh; display:flex; flex-direction:column; background:var(--paper); color:var(--ink); }
-.deck:fullscreen, .deck:-webkit-full-screen, .deck:-ms-fullscreen { width:100vw; height:100vh; background:var(--paper); }
-:fullscreen, :-webkit-full-screen { background:var(--paper); }
-.progress { height:3px; background:var(--paper-2); }
-.progress > div { height:100%; background:var(--accent); width:0%; transition:width .25s ease; }
-.topbar { display:flex; align-items:center; justify-content:space-between; padding:.9rem 1.6rem;
-  border-bottom:1px solid var(--line); font-size:.8rem; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); }
+.deck { position:relative; height:100vh; height:100dvh; display:flex; flex-direction:column; background:var(--bg); color:var(--ink); overflow:hidden; }
+.deck:fullscreen, .deck:-webkit-full-screen, .deck:-ms-fullscreen { width:100vw; height:100vh; background:var(--bg); }
+:fullscreen, :-webkit-full-screen { background:var(--bg); }
+.deck::before, .deck::after { content:""; position:absolute; z-index:0; border-radius:50%; pointer-events:none; filter:blur(2px); }
+.deck::before { top:-12vw; left:-10vw; width:42vw; height:42vw;
+  background: radial-gradient(circle, color-mix(in srgb, var(--blue) 20%, transparent), transparent 70%); }
+.deck::after { bottom:-16vw; right:-12vw; width:50vw; height:50vw;
+  background: radial-gradient(circle, color-mix(in srgb, var(--pink) 16%, transparent), transparent 70%); }
+.progress { position:relative; z-index:2; height:5px; background:var(--pill); }
+.progress > div { height:100%; width:0%; transition:width .25s ease;
+  background: linear-gradient(90deg, var(--blue), var(--pink), var(--yellow)); }
+.topbar { position:relative; z-index:2; display:flex; align-items:center; justify-content:space-between; padding:.9rem 1.6rem;
+  font-size:.8rem; color:var(--muted); }
 .topbar .left { display:flex; align-items:center; gap:1rem; }
-.topbar a.home { color:var(--accent-2); font-weight:700; text-decoration:none; }
+.topbar a.home { color:var(--blue); font-weight:800; text-decoration:none; }
 .topbar a.home:hover { text-decoration:underline; }
-.topbar .tag { font-weight:600; color:var(--accent-2); }
-.topbar .counter { font-variant-numeric: tabular-nums; }
-.slides { position:relative; flex:1; min-height:0; }
+.topbar .tag { font-weight:800; letter-spacing:.02em; color:#fff; background:var(--blue); padding:.35em 1em; border-radius:999px; }
+.topbar .counter { font-variant-numeric: tabular-nums; font-weight:700; letter-spacing:.06em; }
+.slides { position:relative; flex:1; min-height:0; z-index:1; }
 .slide { position:absolute; inset:0; display:none; align-items:stretch; justify-content:stretch; }
 .slide.active { display:flex; }
 .slide.entering { animation: fade .28s ease; }
@@ -40,7 +61,7 @@ html, body { height:100%; overflow:hidden; }
 .stage { flex:1; display:flex; align-items:center; justify-content:center; padding:clamp(1.5rem,5vw,5rem); text-align:center; }
 .script { width:min(94vw,1900px); margin-inline:auto; text-align:left; }
 .script .line { font-family:"Pretendard Variable","Apple SD Gothic Neo","Segoe UI","Helvetica Neue",Arial,sans-serif;
-  font-weight:700; letter-spacing:-.01em; line-height:1.5; margin:0 0 .7em 0; }
+  font-weight:800; letter-spacing:-.01em; line-height:1.5; margin:0 0 .7em 0; }
 .script .line:not(.solo) { padding-left:1.35em; text-indent:-1.35em; }
 .script.len-1 .line { font-size:clamp(2.4rem,6vw,5.2rem); }
 .script.len-2 .line { font-size:clamp(2.1rem,5vw,4.3rem); }
@@ -49,37 +70,46 @@ html, body { height:100%; overflow:hidden; }
 .script.len-5 .line { font-size:clamp(1.3rem,2.7vw,2.4rem); }
 .script .line.solo { margin:0; }
 .script.monologue .line { line-height:2; }
-.script .speaker { font-weight:800; color:var(--accent-2); margin-right:.32em; }
+.script .speaker { font-weight:900; margin-right:.32em; }
+.script .speaker.sp-a { color:var(--pink); }
+.script .speaker.sp-b { color:var(--blue); }
 .question { width:min(94vw,1700px); margin-inline:auto; }
-.qnum { font-family:"Pretendard Variable","Apple SD Gothic Neo",sans-serif; font-weight:800; letter-spacing:.04em;
-  color:var(--accent-2); font-size:clamp(1rem,1.6vw,1.4rem); margin-bottom:.6em; }
+.qnum { display:inline-flex; align-items:center; justify-content:center;
+  width:clamp(2.4rem,3.6vw,3.4rem); height:clamp(2.4rem,3.6vw,3.4rem);
+  border-radius:999px; background:var(--blue); color:#fff;
+  font-family:"Pretendard Variable","Apple SD Gothic Neo",sans-serif; font-weight:900;
+  font-size:clamp(1.1rem,1.7vw,1.5rem); margin-bottom:.8em; box-shadow:var(--shadow); }
 .qtext { font-family:"Pretendard Variable","Apple SD Gothic Neo","Segoe UI","Helvetica Neue",Arial,sans-serif;
   font-weight:800; letter-spacing:-.01em; line-height:1.4;
   margin:0 0 1em 0; font-size:clamp(1.7rem,3.4vw,3.1rem); text-wrap:balance; }
 .options { display:flex; flex-direction:column; gap:.6em; }
-.opt { display:flex; align-items:center; gap:.7em; text-align:left; background:var(--paper-2); border:1px solid var(--line);
-  border-radius:.6em; padding:.8em 1.1em; cursor:pointer; font:inherit; color:inherit;
+.opt { display:flex; align-items:center; gap:.7em; text-align:left; background:var(--surface-2); border:2px solid var(--line);
+  border-radius:1em; padding:.8em 1.1em; cursor:pointer; font:inherit; color:inherit;
   transition:background .15s ease, border-color .15s ease, transform .1s ease; }
-.opt:hover { border-color:var(--accent); }
+.opt:hover { border-color:var(--blue); transform:translateY(-1px); }
 .opt:active { transform:scale(.99); }
-.opt .label { display:inline-flex; align-items:center; justify-content:center; width:1.7em; height:1.7em; flex:none;
-  border-radius:999px; background:var(--paper); border:1px solid var(--line);
-  font-family:"Pretendard Variable","Apple SD Gothic Neo",sans-serif; font-weight:800; font-size:clamp(1rem,1.6vw,1.4rem); }
+.opt .label { display:inline-flex; align-items:center; justify-content:center; width:1.8em; height:1.8em; flex:none;
+  border-radius:999px; background:var(--pill); color:var(--ink);
+  font-family:"Pretendard Variable","Apple SD Gothic Neo",sans-serif; font-weight:900; font-size:clamp(1rem,1.6vw,1.4rem); }
+.options .opt:nth-child(1) .label { background:var(--blue); color:#fff; }
+.options .opt:nth-child(2) .label { background:var(--green); color:#fff; }
+.options .opt:nth-child(3) .label { background:var(--yellow); color:#fff; }
+.options .opt:nth-child(4) .label { background:var(--pink); color:#fff; }
 .opt .text { font-family:"Pretendard Variable","Apple SD Gothic Neo","Segoe UI","Helvetica Neue",Arial,sans-serif;
   font-weight:700; font-size:clamp(1.35rem,2.4vw,2.05rem); line-height:1.35; }
 .options.revealed .opt { cursor:default; }
-.options.revealed .opt[data-correct="true"] { background: color-mix(in srgb, var(--good) 18%, var(--paper-2)); border-color:var(--good); }
-.options.revealed .opt[data-correct="true"] .label { background:var(--good); color:#fff; border-color:var(--good); }
-.options.revealed .opt.picked-wrong { background: color-mix(in srgb, var(--bad) 16%, var(--paper-2)); border-color:var(--bad); }
-.options.revealed .opt.picked-wrong .label { background:var(--bad); color:#fff; border-color:var(--bad); }
-.answer-line { margin-top:1em; min-height:1.4em; font-weight:700; letter-spacing:.03em; font-size:clamp(1rem,1.6vw,1.3rem); color:var(--good); }
-.controls { display:flex; align-items:center; gap:.6rem; justify-content:center; padding:.8rem 1rem; border-top:1px solid var(--line); flex-wrap:wrap; }
-.controls button, .controls select { font:inherit; font-size:.85rem; color:var(--ink); background:var(--paper-2);
-  border:1px solid var(--line); border-radius:.5em; padding:.5em .9em; cursor:pointer; }
-.controls button:hover, .controls select:hover { border-color:var(--accent); }
-.controls button:focus-visible, .controls select:focus-visible, .opt:focus-visible { outline:2px solid var(--accent); outline-offset:2px; }
+.options.revealed .opt[data-correct="true"] { background: color-mix(in srgb, var(--good) 20%, var(--surface-2)); border-color:var(--good); }
+.options.revealed .opt[data-correct="true"] .label { background:var(--good); color:#fff; }
+.options.revealed .opt.picked-wrong { background: color-mix(in srgb, var(--bad) 18%, var(--surface-2)); border-color:var(--bad); }
+.options.revealed .opt.picked-wrong .label { background:var(--bad); color:#fff; }
+.answer-line { margin-top:1em; min-height:1.4em; font-weight:800; letter-spacing:.03em; font-size:clamp(1rem,1.6vw,1.3rem); color:var(--good); }
+.controls { position:relative; z-index:2; display:flex; align-items:center; gap:.6rem; justify-content:center; padding:.8rem 1rem; flex-wrap:wrap; }
+.controls button, .controls select { font:inherit; font-size:.85rem; font-weight:700; color:var(--ink); background:var(--surface-2);
+  border:2px solid var(--line); border-radius:999px; padding:.5em 1.1em; cursor:pointer; }
+.controls button:hover, .controls select:hover { border-color:var(--blue); color:var(--blue); }
+.controls button:focus-visible, .controls select:focus-visible, .opt:focus-visible { outline:2px solid var(--blue); outline-offset:2px; }
 .controls .spacer { width:.4rem; }
-.controls .hint { color:var(--muted); font-size:.78rem; }
+.controls .hint { color:var(--muted); font-size:.78rem; font-weight:600; }
 </style>
 
 <div class="deck" id="deck">
@@ -96,14 +126,14 @@ html, body { height:100%; overflow:hidden; }
 <section class="slide script-slide" data-tag="12차시 · Part 3 · 지문 1">
   <div class="stage">
     <div class="script len-3 dialogue">
-      <p class="line"><span class="speaker">B:</span>Hi, I&#x27;d like to return this jacket. It doesn&#x27;t fit, and I don&#x27;t have the receipt.</p><p class="line"><span class="speaker">A:</span>That&#x27;s okay, we can look up your purchase using the card you paid with, if you have it.</p><p class="line"><span class="speaker">B:</span>Yes, here&#x27;s my card.</p><p class="line"><span class="speaker">A:</span>I found it. I can offer you store credit since there&#x27;s no receipt.</p>
+      <p class="line"><span class="speaker sp-b">B:</span>Hi, I&#x27;d like to return this jacket. It doesn&#x27;t fit, and I don&#x27;t have the receipt.</p><p class="line"><span class="speaker sp-a">A:</span>That&#x27;s okay, we can look up your purchase using the card you paid with, if you have it.</p><p class="line"><span class="speaker sp-b">B:</span>Yes, here&#x27;s my card.</p><p class="line"><span class="speaker sp-a">A:</span>I found it. I can offer you store credit since there&#x27;s no receipt.</p>
     </div>
   </div>
 </section>
 <section class="slide question-slide" data-tag="12차시 · 문항 1" data-answer="B">
   <div class="stage">
     <div class="question">
-      <div class="qnum">Q1</div>
+      <div class="qnum">1</div>
       <p class="qtext">Why does the man want to return the jacket?</p>
       <div class="options">
         <button type="button" class="opt" data-correct="false"><span class="label">A</span><span class="text">It is defective</span></button><button type="button" class="opt" data-correct="true"><span class="label">B</span><span class="text">It doesn&#x27;t fit</span></button><button type="button" class="opt" data-correct="false"><span class="label">C</span><span class="text">He changed his mind about the color</span></button><button type="button" class="opt" data-correct="false"><span class="label">D</span><span class="text">It was the wrong item</span></button>
@@ -115,7 +145,7 @@ html, body { height:100%; overflow:hidden; }
 <section class="slide question-slide" data-tag="12차시 · 문항 2" data-answer="B">
   <div class="stage">
     <div class="question">
-      <div class="qnum">Q2</div>
+      <div class="qnum">2</div>
       <p class="qtext">What problem does the man have?</p>
       <div class="options">
         <button type="button" class="opt" data-correct="false"><span class="label">A</span><span class="text">He lost the item&#x27;s tag</span></button><button type="button" class="opt" data-correct="true"><span class="label">B</span><span class="text">He doesn&#x27;t have the receipt</span></button><button type="button" class="opt" data-correct="false"><span class="label">C</span><span class="text">The return period has expired</span></button><button type="button" class="opt" data-correct="false"><span class="label">D</span><span class="text">He paid in cash</span></button>
@@ -127,7 +157,7 @@ html, body { height:100%; overflow:hidden; }
 <section class="slide question-slide" data-tag="12차시 · 문항 3" data-answer="B">
   <div class="stage">
     <div class="question">
-      <div class="qnum">Q3</div>
+      <div class="qnum">3</div>
       <p class="qtext">What does the woman offer instead of a refund?</p>
       <div class="options">
         <button type="button" class="opt" data-correct="false"><span class="label">A</span><span class="text">A gift card</span></button><button type="button" class="opt" data-correct="true"><span class="label">B</span><span class="text">Store credit</span></button><button type="button" class="opt" data-correct="false"><span class="label">C</span><span class="text">An exchange only</span></button><button type="button" class="opt" data-correct="false"><span class="label">D</span><span class="text">A discount on a future purchase</span></button>
@@ -139,14 +169,14 @@ html, body { height:100%; overflow:hidden; }
 <section class="slide script-slide" data-tag="12차시 · Part 3 · 지문 2">
   <div class="stage">
     <div class="script len-4 dialogue">
-      <p class="line"><span class="speaker">A:</span>I&#x27;m finalizing the order for next week&#x27;s company event. Can we still add ten more guests?</p><p class="line"><span class="speaker">B:</span>Let me check with the kitchen... yes, that should be fine, but we&#x27;ll need final numbers by Wednesday.</p><p class="line"><span class="speaker">A:</span>I&#x27;ll confirm the exact count by then.</p><p class="line"><span class="speaker">B:</span>Great, I&#x27;ll also send you an updated invoice once the numbers are finalized.</p>
+      <p class="line"><span class="speaker sp-a">A:</span>I&#x27;m finalizing the order for next week&#x27;s company event. Can we still add ten more guests?</p><p class="line"><span class="speaker sp-b">B:</span>Let me check with the kitchen... yes, that should be fine, but we&#x27;ll need final numbers by Wednesday.</p><p class="line"><span class="speaker sp-a">A:</span>I&#x27;ll confirm the exact count by then.</p><p class="line"><span class="speaker sp-b">B:</span>Great, I&#x27;ll also send you an updated invoice once the numbers are finalized.</p>
     </div>
   </div>
 </section>
 <section class="slide question-slide" data-tag="12차시 · 문항 4" data-answer="B">
   <div class="stage">
     <div class="question">
-      <div class="qnum">Q4</div>
+      <div class="qnum">4</div>
       <p class="qtext">What are the speakers discussing?</p>
       <div class="options">
         <button type="button" class="opt" data-correct="false"><span class="label">A</span><span class="text">A restaurant reservation</span></button><button type="button" class="opt" data-correct="true"><span class="label">B</span><span class="text">A catering order for an event</span></button><button type="button" class="opt" data-correct="false"><span class="label">C</span><span class="text">A menu change</span></button><button type="button" class="opt" data-correct="false"><span class="label">D</span><span class="text">A delivery schedule</span></button>
@@ -158,7 +188,7 @@ html, body { height:100%; overflow:hidden; }
 <section class="slide question-slide" data-tag="12차시 · 문항 5" data-answer="B">
   <div class="stage">
     <div class="question">
-      <div class="qnum">Q5</div>
+      <div class="qnum">5</div>
       <p class="qtext">What does the man need from the woman?</p>
       <div class="options">
         <button type="button" class="opt" data-correct="false"><span class="label">A</span><span class="text">A deposit</span></button><button type="button" class="opt" data-correct="true"><span class="label">B</span><span class="text">The final guest count by Wednesday</span></button><button type="button" class="opt" data-correct="false"><span class="label">C</span><span class="text">A signed contract</span></button><button type="button" class="opt" data-correct="false"><span class="label">D</span><span class="text">The event location</span></button>
@@ -170,7 +200,7 @@ html, body { height:100%; overflow:hidden; }
 <section class="slide question-slide" data-tag="12차시 · 문항 6" data-answer="B">
   <div class="stage">
     <div class="question">
-      <div class="qnum">Q6</div>
+      <div class="qnum">6</div>
       <p class="qtext">What will the man send once the numbers are confirmed?</p>
       <div class="options">
         <button type="button" class="opt" data-correct="false"><span class="label">A</span><span class="text">A new menu</span></button><button type="button" class="opt" data-correct="true"><span class="label">B</span><span class="text">An updated invoice</span></button><button type="button" class="opt" data-correct="false"><span class="label">C</span><span class="text">A delivery confirmation</span></button><button type="button" class="opt" data-correct="false"><span class="label">D</span><span class="text">A receipt</span></button>
@@ -189,7 +219,7 @@ html, body { height:100%; overflow:hidden; }
 <section class="slide question-slide" data-tag="12차시 · 문항 7" data-answer="B">
   <div class="stage">
     <div class="question">
-      <div class="qnum">Q7</div>
+      <div class="qnum">7</div>
       <p class="qtext">What is being advertised?</p>
       <div class="options">
         <button type="button" class="opt" data-correct="false"><span class="label">A</span><span class="text">A grocery store</span></button><button type="button" class="opt" data-correct="true"><span class="label">B</span><span class="text">A furniture sale</span></button><button type="button" class="opt" data-correct="false"><span class="label">C</span><span class="text">A clothing store</span></button><button type="button" class="opt" data-correct="false"><span class="label">D</span><span class="text">An electronics sale</span></button>
@@ -201,7 +231,7 @@ html, body { height:100%; overflow:hidden; }
 <section class="slide question-slide" data-tag="12차시 · 문항 8" data-answer="C">
   <div class="stage">
     <div class="question">
-      <div class="qnum">Q8</div>
+      <div class="qnum">8</div>
       <p class="qtext">How much can customers save?</p>
       <div class="options">
         <button type="button" class="opt" data-correct="false"><span class="label">A</span><span class="text">Up to 20 percent</span></button><button type="button" class="opt" data-correct="false"><span class="label">B</span><span class="text">Up to 30 percent</span></button><button type="button" class="opt" data-correct="true"><span class="label">C</span><span class="text">Up to 40 percent</span></button><button type="button" class="opt" data-correct="false"><span class="label">D</span><span class="text">Up to 50 percent</span></button>
@@ -213,7 +243,7 @@ html, body { height:100%; overflow:hidden; }
 <section class="slide question-slide" data-tag="12차시 · 문항 9" data-answer="B">
   <div class="stage">
     <div class="question">
-      <div class="qnum">Q9</div>
+      <div class="qnum">9</div>
       <p class="qtext">What is included with purchases over 500 dollars?</p>
       <div class="options">
         <button type="button" class="opt" data-correct="false"><span class="label">A</span><span class="text">A gift card</span></button><button type="button" class="opt" data-correct="true"><span class="label">B</span><span class="text">Free delivery</span></button><button type="button" class="opt" data-correct="false"><span class="label">C</span><span class="text">An extended warranty</span></button><button type="button" class="opt" data-correct="false"><span class="label">D</span><span class="text">A discount coupon</span></button>
@@ -232,7 +262,7 @@ html, body { height:100%; overflow:hidden; }
 <section class="slide question-slide" data-tag="12차시 · 문항 10" data-answer="B">
   <div class="stage">
     <div class="question">
-      <div class="qnum">Q10</div>
+      <div class="qnum">10</div>
       <p class="qtext">What event is being announced?</p>
       <div class="options">
         <button type="button" class="opt" data-correct="false"><span class="label">A</span><span class="text">A graduation ceremony</span></button><button type="button" class="opt" data-correct="true"><span class="label">B</span><span class="text">A career fair</span></button><button type="button" class="opt" data-correct="false"><span class="label">C</span><span class="text">A club meeting</span></button><button type="button" class="opt" data-correct="false"><span class="label">D</span><span class="text">A sports event</span></button>
@@ -244,7 +274,7 @@ html, body { height:100%; overflow:hidden; }
 <section class="slide question-slide" data-tag="12차시 · 문항 11" data-answer="B">
   <div class="stage">
     <div class="question">
-      <div class="qnum">Q11</div>
+      <div class="qnum">11</div>
       <p class="qtext">What are students encouraged to bring?</p>
       <div class="options">
         <button type="button" class="opt" data-correct="false"><span class="label">A</span><span class="text">A laptop</span></button><button type="button" class="opt" data-correct="true"><span class="label">B</span><span class="text">Several copies of their resume</span></button><button type="button" class="opt" data-correct="false"><span class="label">C</span><span class="text">A reference letter</span></button><button type="button" class="opt" data-correct="false"><span class="label">D</span><span class="text">A portfolio only</span></button>
@@ -256,7 +286,7 @@ html, body { height:100%; overflow:hidden; }
 <section class="slide question-slide" data-tag="12차시 · 문항 12" data-answer="B">
   <div class="stage">
     <div class="question">
-      <div class="qnum">Q12</div>
+      <div class="qnum">12</div>
       <p class="qtext">What is required for entry?</p>
       <div class="options">
         <button type="button" class="opt" data-correct="false"><span class="label">A</span><span class="text">A ticket</span></button><button type="button" class="opt" data-correct="true"><span class="label">B</span><span class="text">A student ID</span></button><button type="button" class="opt" data-correct="false"><span class="label">C</span><span class="text">A registration form</span></button><button type="button" class="opt" data-correct="false"><span class="label">D</span><span class="text">An invitation letter</span></button>
