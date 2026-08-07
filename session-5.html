@@ -1,4 +1,5 @@
 <!doctype html>
+<meta charset="utf-8" />
 <title>5차시 · TOEIC LC 슬라이드</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <style>
@@ -59,6 +60,8 @@ html, body { height:100%; overflow:hidden; }
 @media (prefers-reduced-motion: reduce) { .slide.entering { animation:none; } }
 @keyframes fade { from{opacity:0; transform:translateY(6px);} to{opacity:1; transform:translateY(0);} }
 .stage { flex:1; display:flex; align-items:center; justify-content:center; padding:clamp(1.5rem,5vw,5rem); text-align:center; }
+.question-slide .stage { padding-right: calc(clamp(1.5rem,5vw,5rem) + clamp(220px,32vh,380px) + 1.5rem); }
+@media (max-width:700px) { .question-slide .stage { padding-right: clamp(1.5rem,5vw,5rem); } }
 .script { width:min(94vw,1900px); margin-inline:auto; text-align:left; }
 .script .line { font-family:"Pretendard Variable","Apple SD Gothic Neo","Segoe UI","Helvetica Neue",Arial,sans-serif;
   font-weight:800; letter-spacing:-.01em; line-height:1.5; margin:0 0 .7em 0; }
@@ -73,7 +76,7 @@ html, body { height:100%; overflow:hidden; }
 .script .speaker { font-weight:900; margin-right:.32em; }
 .script .speaker.sp-a { color:var(--pink); }
 .script .speaker.sp-b { color:var(--blue); }
-.question { width:min(94vw,1700px); margin-inline:auto; }
+.question { width:fit-content; max-width:min(78vw,980px); margin-inline:auto; text-align:left; }
 .qnum { display:inline-flex; align-items:center; justify-content:center;
   width:clamp(2.4rem,3.6vw,3.4rem); height:clamp(2.4rem,3.6vw,3.4rem);
   border-radius:999px; background:var(--blue); color:#fff;
@@ -81,7 +84,8 @@ html, body { height:100%; overflow:hidden; }
   font-size:clamp(1.1rem,1.7vw,1.5rem); margin-bottom:.8em; box-shadow:var(--shadow); }
 .qtext { font-family:"Pretendard Variable","Apple SD Gothic Neo","Segoe UI","Helvetica Neue",Arial,sans-serif;
   font-weight:800; letter-spacing:-.01em; line-height:1.4;
-  margin:0 0 1em 0; font-size:clamp(1.7rem,3.4vw,3.1rem); text-wrap:balance; }
+  margin:0 0 1em 0; font-size:clamp(1.7rem,3.4vw,3.1rem);
+  max-width:28ch; text-align:left; text-wrap:balance; }
 .options { display:flex; flex-direction:column; align-items:flex-start; gap:.6em; }
 .opt { display:flex; align-items:center; gap:.7em; text-align:left; width:fit-content; max-width:100%;
   background:var(--surface-2); border:2px solid var(--line);
@@ -106,7 +110,7 @@ html, body { height:100%; overflow:hidden; }
 .answer-line { margin-top:1em; min-height:1.4em; font-weight:800; letter-spacing:.03em; font-size:clamp(1rem,1.6vw,1.3rem); color:var(--good); }
 .mascot { position:absolute; z-index:3; pointer-events:none;
   top:clamp(1rem,3vw,2.4rem); right:clamp(1rem,3vw,2.4rem);
-  height:clamp(260px,38vh,460px); width:clamp(260px,38vh,460px);
+  height:clamp(220px,32vh,380px); width:clamp(220px,32vh,380px);
   background-size:contain; background-repeat:no-repeat; background-position:top right;
   filter: drop-shadow(0 10px 22px rgba(22,32,74,.2)); }
 .mascot-1 { background-image:url("mascot1.png"); }
